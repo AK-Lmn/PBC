@@ -1,821 +1,650 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Peptide Babe Co 💗 Order Form</title>
-<meta content="Peptide Babe Co 💗 Order Form" property="og:title"/>
-<meta content="Tirzepatide • Retatrutide • GHKCU • Mesolipo • Skin Boosters &amp; more ✨ Your wellness bestie!" property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://peptide-babe-co.vercel.app" property="og:url"/>
-<meta content="https://peptide-babe-co.vercel.app/thumbnail.jpg" property="og:image"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&amp;family=Pacifico&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peptide Babe Co 💗 Order Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<div class="brand">Peptide Babe Co 💗</div>
-<div class="brand-sub">✨ Your Wellness Bestie ✨</div>
-</header>
-<div class="layout">
-<div class="products-panel">
-<div class="search-wrap">
-<span class="search-icon">🔍</span>
-<input class="search-input" id="searchInput" placeholder="Search products..." type="text"/>
-</div>
-<div id="productCatalog"> <div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">💉</span>
-<span class="cat-title">Tirzepatide Complete Set</span>
-<span class="cat-pill">w/ supplies</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Tirzepatide 10mg — Complete Set" data-price="1300" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 10</div><div class="card-price">1,300</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 15mg — Complete Set" data-price="1400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 15</div><div class="card-price">1,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 20mg — Complete Set" data-price="1600" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 20</div><div class="card-price">1,600</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 30mg — Complete Set" data-price="1700" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 30</div><div class="card-price">1,700</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 40mg — Complete Set" data-price="2250" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 40</div><div class="card-price">2,250</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 50mg — Complete Set" data-price="2550" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 50</div><div class="card-price">2,550</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 60mg — Complete Set" data-price="2700" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 60</div><div class="card-price">2,700</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 70mg — Complete Set" data-price="2900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">TIR 70</div><div class="card-price">2,900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">🧪</span>
-<span class="cat-title">Tirzepatide Vials &amp; Bac Water</span>
-<span class="cat-pill">vials only</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Tirzepatide 10mg — Vials Only" data-price="800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 10</div><div class="card-price">800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 15mg — Vials Only" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 15</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 20mg — Vials Only" data-price="1100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 20</div><div class="card-price">1,100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 30mg — Vials Only" data-price="1150" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 30</div><div class="card-price">1,150</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 40mg — Vials Only" data-price="1500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 40</div><div class="card-price">1,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 50mg — Vials Only" data-price="1700" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 50</div><div class="card-price">1,700</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 60mg — Vials Only" data-price="2000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 60</div><div class="card-price">2,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Tirzepatide 70mg — Vials Only" data-price="2800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">TIR 70</div><div class="card-price">2,800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">✨</span>
-<span class="cat-title">Retatrutide Complete Set</span>
-<span class="cat-pill">w/ supplies</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Retatrutide 10mg — Complete Set" data-price="1500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💫</span>
-<div class="card-name">RETA 10</div><div class="card-price">1,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Retatrutide 15mg — Complete Set" data-price="1700" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💫</span>
-<div class="card-name">RETA 15</div><div class="card-price">1,700</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Retatrutide 20mg — Complete Set" data-price="2000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💫</span>
-<div class="card-name">RETA 20</div><div class="card-price">2,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Retatrutide 30mg — Complete Set" data-price="2500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💫</span>
-<div class="card-name">RETA 30</div><div class="card-price">2,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">🧪</span>
-<span class="cat-title">Retatrutide Vials Only</span>
-<span class="cat-pill">vials only</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Retatrutide 10mg — Vials Only" data-price="1200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">RETA 10</div><div class="card-price">1,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Retatrutide 15mg — Vials Only" data-price="1300" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">RETA 15</div><div class="card-price">1,300</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Retatrutide 20mg — Vials Only" data-price="1500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">RETA 20</div><div class="card-price">1,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Retatrutide 30mg — Vials Only" data-price="2200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔬</span>
-<div class="card-name">RETA 30</div><div class="card-price">2,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">🌸</span>
-<span class="cat-title">Mesolipo Vial / Box</span>
-<span class="cat-pill">vial &amp; box</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Aqualyx Vial" data-price="350" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💧</span>
-<div class="card-name">Aqualyx Vial</div><div class="card-price">350</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Aqualyx Box" data-price="2800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Aqualyx Box</div><div class="card-price">2,800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lemon Bottle China 10ML Vial" data-price="500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🍋</span>
-<div class="card-name">Lemon China 10ML</div><div class="card-price">500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lemon Bottle China 10ML Box" data-price="4800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Lemon China Box</div><div class="card-price">4,800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lemon Bottle China 50ML" data-price="1200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🍋</span>
-<div class="card-name">Lemon China 50ML</div><div class="card-price">1,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lemon Bottle Korea Vial" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🍋</span>
-<div class="card-name">Lemon Korea Vial</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lemon Bottle Korea Box" data-price="4500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Lemon Korea Box</div><div class="card-price">4,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lipo Vela Vial" data-price="400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💉</span>
-<div class="card-name">Lipo Vela Vial</div><div class="card-price">400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lipo Vela Box" data-price="3000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Lipo Vela Box</div><div class="card-price">3,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lipo Vela V Line Vial" data-price="450" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💉</span>
-<div class="card-name">Lipo Vela V Line</div><div class="card-price">450</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lipo Vela V Line Box" data-price="3700" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">V Line Box</div><div class="card-price">3,700</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div><div class="product-card" data-name="Pine Bottle Vial" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🌲</span>
-<div class="card-name">Pine Bottle</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Pine Bottle Box" data-price="4400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Pine Bottle Box</div><div class="card-price">4,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div></div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">🧬</span>
-<span class="cat-title">Other Peps Complete Set</span>
-<span class="cat-pill">w/ supplies</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Cagrilintide — Complete Set" data-price="1400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">Cagrilintide</div><div class="card-price">1,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="MOTS-C 40mg — Complete Set" data-price="2000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">MOTS-C 40mg</div><div class="card-price">2,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="MOTS-C 10mg — Complete Set" data-price="1250" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">MOTS-C 10mg</div><div class="card-price">1,250</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="AOD-9604 5mg — Complete Set" data-price="1400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">AOD-9604 5mg</div><div class="card-price">1,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="AOD-9604 10mg — Complete Set" data-price="1700" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">AOD-9604 10mg</div><div class="card-price">1,700</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KPV 10mg — Complete Set" data-price="1200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">KPV 10mg</div><div class="card-price">1,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KPV 5mg — Complete Set" data-price="1100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">KPV 5mg</div><div class="card-price">1,100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="SEMAX 10mg — Complete Set" data-price="1300" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">SEMAX 10mg</div><div class="card-price">1,300</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="EPITALON 10mg — Complete Set" data-price="1000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">EPITALON 10mg</div><div class="card-price">1,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KISSPEPTIN 10mg — Complete Set" data-price="1300" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">KISSPEPTIN 10mg</div><div class="card-price">1,300</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KLOW 80mg — Complete Set" data-price="2000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⚡</span>
-<div class="card-name">KLOW 80mg</div><div class="card-price">2,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="SS-31 10mg — Complete Set" data-price="1300" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⭐</span>
-<div class="card-name">SS-31 10mg</div><div class="card-price">1,300</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="SLU-PP-332 — Complete Set" data-price="1400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">SLU-PP-332</div><div class="card-price">1,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Fat Blaster — Complete Set" data-price="1500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔥</span>
-<div class="card-name">Fat Blaster</div><div class="card-price">1,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lipo C with B12 — Complete Set" data-price="1200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🌟</span>
-<div class="card-name">Lipo C with B12</div><div class="card-price">1,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="L-Carnitine — Complete Set" data-price="1100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💪</span>
-<div class="card-name">L-Carnitine</div><div class="card-price">1,100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="NAD+ 500mg — Complete Set" data-price="1400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⚡</span>
-<div class="card-name">NAD+ 500mg</div><div class="card-price">1,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="NAD+ 1000mg — Complete Set" data-price="1500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⚡</span>
-<div class="card-name">NAD+ 1000mg</div><div class="card-price">1,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="BPC-157 10mg — Complete Set" data-price="1250" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">BPC-157 10mg</div><div class="card-price">1,250</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Korean Pink Gluta (Snow White) — Complete Set" data-price="1300" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">✨</span>
-<div class="card-name">Korean Pink Gluta (Snow White)</div><div class="card-price">1,300</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Fuan Gluta 1500mg — Complete Set" data-price="1400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">✨</span>
-<div class="card-name">Fuan Gluta 1500mg</div><div class="card-price">1,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="5 Amino 50mg — Complete Set" data-price="1650" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">5 Amino 50mg</div><div class="card-price">1,650</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="5 Amino 5mg — Complete Set" data-price="1250" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">5 Amino 5mg</div><div class="card-price">1,250</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="GHKCU 50 MG Set — Complete Set" data-price="1250" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💎</span>
-<div class="card-name">GHKCU 50 MG Set</div><div class="card-price">1,250</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="GHKCU 100 MG Set — Complete Set" data-price="1400" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💎</span>
-<div class="card-name">GHKCU 100 MG Set</div><div class="card-price">1,400</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">🔬</span>
-<span class="cat-title">Other Peps Vials Only</span>
-<span class="cat-pill">vials only</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Cagrilintide — Vials Only" data-price="1100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">Cagrilintide</div><div class="card-price">1,100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="MOTS-C 40mg — Vials Only" data-price="1500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">MOTS-C 40mg</div><div class="card-price">1,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="MOTS-C 10mg — Vials Only" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">MOTS-C 10mg</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="AOD-9604 5mg — Vials Only" data-price="1100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">AOD-9604 5mg</div><div class="card-price">1,100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="AOD-9604 10mg — Vials Only" data-price="1200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">AOD-9604 10mg</div><div class="card-price">1,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KPV 10mg — Vials Only" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">KPV 10mg</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KPV 5mg — Vials Only" data-price="800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">KPV 5mg</div><div class="card-price">800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="SEMAX 10mg — Vials Only" data-price="800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">SEMAX 10mg</div><div class="card-price">800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="EPITALON 10mg — Vials Only" data-price="700" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">EPITALON 10mg</div><div class="card-price">700</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KISSPEPTIN 10mg — Vials Only" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">KISSPEPTIN 10mg</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="KLOW 80mg — Vials Only" data-price="1500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⚡</span>
-<div class="card-name">KLOW 80mg</div><div class="card-price">1,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="SS-31 10mg — Vials Only" data-price="1000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⭐</span>
-<div class="card-name">SS-31 10mg</div><div class="card-price">1,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="SLU-PP-332 — Vials Only" data-price="1000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">SLU-PP-332</div><div class="card-price">1,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Fat Blaster — Vials Only" data-price="1150" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🔥</span>
-<div class="card-name">Fat Blaster</div><div class="card-price">1,150</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Lipo C with B12 — Vials Only" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🌟</span>
-<div class="card-name">Lipo C with B12</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="L-Carnitine — Vials Only" data-price="800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💪</span>
-<div class="card-name">L-Carnitine</div><div class="card-price">800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="NAD+ 500mg — Vials Only" data-price="1100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⚡</span>
-<div class="card-name">NAD+ 500mg</div><div class="card-price">1,100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="NAD+ 1000mg — Vials Only" data-price="1200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">⚡</span>
-<div class="card-name">NAD+ 1000mg</div><div class="card-price">1,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="BPC-157 10mg — Vials Only" data-price="1000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">BPC-157 10mg</div><div class="card-price">1,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Korean Pink Gluta (Snow White) — Vials Only" data-price="800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">✨</span>
-<div class="card-name">Korean Pink Gluta (Snow White)</div><div class="card-price">800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Fuan Gluta 1500mg — Vials Only" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">✨</span>
-<div class="card-name">Fuan Gluta 1500mg</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="5 Amino 50mg — Vials Only" data-price="1350" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">5 Amino 50mg</div><div class="card-price">1,350</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="5 Amino 5mg — Vials Only" data-price="1100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">5 Amino 5mg</div><div class="card-price">1,100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="GHKCU 50 MG Vials Only" data-price="800" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💎</span>
-<div class="card-name">GHKCU 50 MG Vials Only</div><div class="card-price">800</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="GHKCU 100 MG Vials Only" data-price="900" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💎</span>
-<div class="card-name">GHKCU 100 MG Vials Only</div><div class="card-price">900</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">🌟</span>
-<span class="cat-title">Skin Boosters</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Pink Hyaluronic Acid" data-price="380" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🌸</span>
-<div class="card-name">Pink Hyaluronic Acid</div><div class="card-price">380</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Snap 8" data-price="500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧬</span>
-<div class="card-name">Snap 8</div><div class="card-price">500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="PDRN" data-price="420" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🌟</span>
-<div class="card-name">PDRN</div><div class="card-price">420</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Anti-Acne" data-price="500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">✨</span>
-<div class="card-name">Anti-Acne</div><div class="card-price">500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="GHKCU Serum" data-price="420" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💎</span>
-<div class="card-name">GHKCU Serum</div><div class="card-price">420</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Gluta with Vit-C & Hyuronic Serum" data-price="420" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💧</span>
-<div class="card-name">Gluta with Vit-C &amp; Hyuronic Serum</div><div class="card-price">420</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">💊</span>
-<span class="cat-title">Vitamins</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Fortima 30s Tablet" data-price="390" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💊</span>
-<div class="card-name">Fortima 30s Tablet</div><div class="card-price">390</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">📦</span>
-<span class="cat-title">Reseller Box</span>
-<span class="cat-pill">VIALS + BAC ONLY</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="Reseller Box - Korean Pink Gluta" data-price="4200" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">✨</span>
-<div class="card-name">Korean Pink Gluta</div><div class="card-price">4,200</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reseller Box - Fuan Glutathione" data-price="6000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">✨</span>
-<div class="card-name">Fuan Glutathione</div><div class="card-price">6,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reseller Box - Tirzepatide 10mg" data-price="6500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Tirzepatide 10mg</div><div class="card-price">6,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reseller Box - Tirzepatide 15mg" data-price="7500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Tirzepatide 15mg</div><div class="card-price">7,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reseller Box - Tirzepatide 30mg" data-price="8500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Tirzepatide 30mg</div><div class="card-price">8,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reseller Box - Tirzepatide 60mg" data-price="13000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">📦</span>
-<div class="card-name">Tirzepatide 60mg</div><div class="card-price">13,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reseller Box - GHKCU 50" data-price="3500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💎</span>
-<div class="card-name">GHKCU 50</div><div class="card-price">3,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reseller Box - GHKCU 100" data-price="4500" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💎</span>
-<div class="card-name">GHKCU 100</div><div class="card-price">4,500</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Mega Reseller Package — 10x TIR 15, 10x TIR 30, 10x GHKCU" data-price="20000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🏆</span>
-<div class="card-name">Mega Reseller Package<br><small>10x TIR15 • 10x TIR30 • 10x GHKCU</small></div><div class="card-price">20,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/>
-<div class="product-group" data-group="">
-<div class="cat-header">
-<span class="cat-icon">➕</span>
-<span class="cat-title">Add Ons</span>
-</div>
-<div class="product-grid">
-<div class="product-card" data-name="3 ml Bacwater" data-price="80" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💧</span>
-<div class="card-name">3 ml Bacwater</div><div class="card-price">80</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="5 ml Bacwater" data-price="95" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💧</span>
-<div class="card-name">5 ml Bacwater</div><div class="card-price">95</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="10 ml Bacwater" data-price="120" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💧</span>
-<div class="card-name">10 ml Bacwater</div><div class="card-price">120</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="10 ml Pharma Bac" data-price="130" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💧</span>
-<div class="card-name">10 ml Pharma Bac</div><div class="card-price">130</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Alcohol Pads" data-price="5" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🧻</span>
-<div class="card-name">Alcohol Pads</div><div class="card-price">5</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Insulin Syringe" data-price="12" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🩸</span>
-<div class="card-name">Insulin Syringe</div><div class="card-price">12</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Recon Syringe" data-price="10" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">💉</span>
-<div class="card-name">Recon Syringe</div><div class="card-price">10</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Reusable Peppy Pen Complete Set" data-price="1000" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🖊️</span>
-<div class="card-name">Reusable Peppy Pen Complete Set</div><div class="card-price">1,000</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-<div class="product-card" data-name="Cute Single Vial Case" data-price="100" onclick="toggleProduct(this)">
-<div class="card-check">✓</div><span class="card-emoji">🎀</span>
-<div class="card-name">Cute Single Vial Case</div><div class="card-price">100</div>
-<div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
-</div>
-</div>
-</div>
-<hr class="cat-divider"/></div>
-</div>
-<!-- Order Panel -->
-<div class="order-panel">
-<div class="panel-brand">My Order 🛒</div>
-<p class="panel-sub">💌 Fill in your details below</p>
-<div class="field-group">
-<label class="field-label">💗 Full Name</label>
-<input class="field-input" id="custName" placeholder="Your name" type="text"/>
-</div>
-<div class="field-group">
-<label class="field-label">📱 Contact / Messenger</label>
-<input class="field-input" id="custContact" placeholder="Phone or FB Messenger" type="text"/>
-</div>
-<div class="field-group">
-<label class="field-label">📍 Delivery Address</label>
-<textarea class="field-input" id="custAddress" placeholder="Full delivery address"></textarea>
-</div>
-<hr class="order-divider"/>
-<div class="order-section-label">🛍️ Selected Items</div>
-<div id="orderItems">
-<div class="empty-state" id="emptyState">
-<span>🛒</span>
+
+
+  <header>
+    <div class="brand">Peptide Babe Co 💗</div>
+    <div class="brand-sub">✨ Your Wellness Bestie ✨</div>
+  </header>
+
+
+  <div class="layout">
+
+
+    <div class="products-panel">
+
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="searchInput" type="text" placeholder="Search products...">
+      </div>
+
+      <div id="productCatalog">
+
+
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">💉</span>
+            <span class="cat-title">Tirzepatide Complete Set</span>
+            <span class="cat-pill">w/ supplies</span>
+          </div>
+          <div class="product-grid">
+            <div class="product-card" data-name="TIR 10 — Complete Set" data-price="1150" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">TIR 10</div><div class="card-price">1,150</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 15 — Complete Set" data-price="1300" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">TIR 15</div><div class="card-price">1,300</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 20 — Complete Set" data-price="1500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">TIR 20</div><div class="card-price">1,500</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 30 — Complete Set" data-price="1700" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">TIR 30</div><div class="card-price">1,700</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 40 — Complete Set" data-price="2100" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">TIR 40</div><div class="card-price">2,100</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 50 — Complete Set" data-price="2400" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">TIR 50</div><div class="card-price">2,400</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 60 — Complete Set" data-price="2500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">TIR 60</div><div class="card-price">2,500</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="cat-divider">
+
+
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">🧪</span>
+            <span class="cat-title">Tirzepatide Vials & Bac Water (VIALS ONLY - NO BACWATER INCLUDED)</span>
+          </div>
+          <div class="product-grid">
+            <div class="product-card" data-name="TIR 10 — Vials Only" data-price="900" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔬</span>
+              <div class="card-name">TIR 10</div><div class="card-price">900</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 15 — Vials Only" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔬</span>
+              <div class="card-name">TIR 15</div><div class="card-price">1,000</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 20 — Vials Only" data-price="1300" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔬</span>
+              <div class="card-name">TIR 20</div><div class="card-price">1,300</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 30 — Vials Only" data-price="1200" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔬</span>
+              <div class="card-name">TIR 30</div><div class="card-price">1,200</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 40 — Vials Only" data-price="1800" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔬</span>
+              <div class="card-name">TIR 40</div><div class="card-price">1,800</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 50 — Vials Only" data-price="2000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔬</span>
+              <div class="card-name">TIR 50</div><div class="card-price">2,000</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="TIR 60 — Vials Only" data-price="2200" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔬</span>
+              <div class="card-name">TIR 60</div><div class="card-price">2,200</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="cat-divider">
+
+
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">✨</span>
+            <span class="cat-title">Retatrutide</span>
+          </div>
+          <div class="product-grid">
+            <div class="product-card" data-name="RETA 10" data-price="1500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💫</span>
+              <div class="card-name">RETA 10</div><div class="card-price">1,500</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="RETA 15" data-price="1700" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💫</span>
+              <div class="card-name">RETA 15</div><div class="card-price">1,700</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="RETA 20" data-price="2000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💫</span>
+              <div class="card-name">RETA 20</div><div class="card-price">2,000</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="RETA 30" data-price="2500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💫</span>
+              <div class="card-name">RETA 30</div><div class="card-price">2,500</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="cat-divider">
+
+
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">🌸</span>
+            <span class="cat-title">Mesolipo Per Vial</span>
+          </div>
+          <div class="product-grid">
+            <div class="product-card" data-name="Aqualyx Set" data-price="500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💧</span>
+              <div class="card-name">Aqualyx Set</div><div class="card-price">500</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="Lemon Bottle Set" data-price="850" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🍋</span>
+              <div class="card-name">Lemon Bottle Set</div><div class="card-price">850</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="Aqua Vial" data-price="300" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💦</span>
+              <div class="card-name">Aqua Vial</div><div class="card-price">300</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="Lembot Vial" data-price="750" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🍋</span>
+              <div class="card-name">Lembot Vial</div><div class="card-price">750</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="Aqualyx Box" data-price="3000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">Aqualyx Box</div><div class="card-price">3,000</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="Lembot Box of 10" data-price="7000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">Lembot Box ×10</div><div class="card-price">7,000</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+            <div class="product-card" data-name="Lipo Vela Vial" data-price="500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💉</span>
+              <div class="card-name">Lipo Vela Vial</div><div class="card-price">500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Lipo Vela Box of 10" data-price="4500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">Lipo Vela Box of 10</div><div class="card-price">4,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Lemon Bottle PRO MAX Vial 50ml" data-price="1500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🍋</span>
+              <div class="card-name">Lemon PRO MAX 50ml</div><div class="card-price">1,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+          </div>
+        </div>
+        <hr class="cat-divider">
+
+
+
+
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">🧬</span>
+            <span class="cat-title">Other Peps (VIALS ONLY - NO BACWATER INCLUDED)</span>
+          </div>
+          <div class="product-grid">
+            <div class="product-card" data-name="GHKCU 50 MG Vials Only" data-price="800" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💎</span>
+              <div class="card-name">GHKCU 50 MG Vials Only</div><div class="card-price">800</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="GHKCU 100 MG Vials Only" data-price="900" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💎</span>
+              <div class="card-name">GHKCU 100 MG Vials Only</div><div class="card-price">900</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="GHK-Cu 50mg (5ml)" data-price="1400" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💎</span>
+              <div class="card-name">GHKCU 50mg (5ml) - Set</div><div class="card-price">1,400</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="GHK-Cu 100mg (5ml)" data-price="1600" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💎</span>
+              <div class="card-name">GHKCU 100mg (5ml) - Set</div><div class="card-price">1,600</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="50mg GHKCU + Bac (Vials only)" data-price="900" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💎</span>
+              <div class="card-name">50mg GHKCU + Bac (Vials only)</div><div class="card-price">900</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="100mg GHK-Cu Vial + Bac (Vials only)" data-price="1100" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💎</span>
+              <div class="card-name">100mg GHKCU + Bac (Vials only)</div><div class="card-price">1,100</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="5 Amino 50mg" data-price="1350" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">⚡</span>
+              <div class="card-name">5 Amino 50mg</div><div class="card-price">1,350</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Lipo C with B12" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🌟</span>
+              <div class="card-name">Lipo C with B12</div><div class="card-price">1,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Fat Blaster" data-price="1250" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔥</span>
+              <div class="card-name">Fat Blaster</div><div class="card-price">1,250</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Fuan Gluta 1500mg" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">✨</span>
+              <div class="card-name">Fuan Gluta 1500mg</div><div class="card-price">1,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="NAD+ 500mg" data-price="1100" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">⚡</span>
+              <div class="card-name">NAD+ 500mg</div><div class="card-price">1,100</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="BPC-157 10mg" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">BPC-157 10mg</div><div class="card-price">1,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="AOD-9604 10mg" data-price="1200" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">AOD-9604 10mg</div><div class="card-price">1,200</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="AOD-9604 5mg" data-price="1100" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">AOD-9604 5mg</div><div class="card-price">1,100</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="MOTS-C 10mg" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">MOTS-C 10mg</div><div class="card-price">1,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="KPV 10mg" data-price="1150" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">KPV 10mg</div><div class="card-price">1,150</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="KPV 5mg" data-price="950" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">KPV 5mg</div><div class="card-price">950</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="SEMAX 10mg" data-price="800" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">SEMAX 10mg</div><div class="card-price">800</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="EPITALON 10mg" data-price="900" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">EPITALON 10mg</div><div class="card-price">900</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="KISSPEPTIN 10mg" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">KISSPEPTIN 10mg</div><div class="card-price">1,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="KLOW 80mg" data-price="1500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">⚡</span>
+              <div class="card-name">KLOW 80mg</div><div class="card-price">1,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="SS-31 10mg" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">⭐</span>
+              <div class="card-name">SS-31 10mg</div><div class="card-price">1,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="SLU-PP-332" data-price="1000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">SLU-PP-332</div><div class="card-price">1,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Tesamorelin 10mg" data-price="2150" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🧬</span>
+              <div class="card-name">Tesamorelin 10mg</div><div class="card-price">2,150</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+          </div>
+        </div>
+        <hr class="cat-divider">
+
+
+
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">📦</span>
+            <span class="cat-title">Reseller Sulit Package (VIALS + BAC ONLY)</span>
+            <span class="cat-pill">10 pcs</span>
+          </div>
+          <div class="product-grid">
+            <div class="product-card" data-name="Tirzepatide 10mg" data-price="6500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">Tirzepatide 10mg</div><div class="card-price">6,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Tirzepatide 15mg" data-price="7500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">Tirzepatide 15mg</div><div class="card-price">7,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Tirzepatide 30mg" data-price="9000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">Tirzepatide 30mg</div><div class="card-price">9,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="TIR 30 10pcs w/ Bac5" data-price="13000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">TIR 30 ×10 + Bac5</div><div class="card-price">13,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Tirzepatide 60mg" data-price="14000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">Tirzepatide 60mg</div><div class="card-price">14,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="GHKCU 50" data-price="3500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">GHKCU 50</div><div class="card-price">3,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="GHKCU 100" data-price="4500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">📦</span>
+              <div class="card-name">GHKCU 100</div><div class="card-price">4,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Fuan Glutathione" data-price="6500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🍋</span>
+              <div class="card-name">Fuan Glutathione</div><div class="card-price">6,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Korean Pink Gluta" data-price="4500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🌟</span>
+              <div class="card-name">Korean Pink Gluta</div><div class="card-price">4,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Reseller Fat Blaster Box 10pcs" data-price="9500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🔥</span>
+              <div class="card-name">Fat Blaster Box ×10</div><div class="card-price">9,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Reseller Glutathione Box 10pcs" data-price="12500" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">✨</span>
+              <div class="card-name">Glutathione Box ×10</div><div class="card-price">12,500</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+            <div class="product-card" data-name="Mega Reseller Package 10x TIR15 • 10x TIR30 • 10x GHKCU" data-price="20000" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">🏆</span>
+              <div class="card-name">Mega Reseller Package</div><div class="card-price">20,000</div>
+              <div class="qty-control"><button class="qty-btn" onclick="changeQty(event,this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(event,this,1)">+</button></div>
+            </div>
+          </div>
+        </div>
+        <hr class="cat-divider">
+
+
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">💊</span>
+            <span class="cat-title">Vitamins</span>
+          </div>
+          <div class="product-grid">
+            <div class="product-card" data-name="FORTIMA" data-price="450" onclick="toggleProduct(this)">
+              <div class="card-check">✓</div><span class="card-emoji">💊</span>
+              <div class="card-name">FORTIMA</div><div class="card-price">450</div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <div class="order-panel">
+      <div class="panel-brand">My Order 🛒</div>
+      <p class="panel-sub">💌 Fill in your details below</p>
+
+      <div class="field-group">
+        <label class="field-label">💗 Full Name</label>
+        <input class="field-input" id="custName" type="text" placeholder="Your name">
+      </div>
+      <div class="field-group">
+        <label class="field-label">📱 Contact / Messenger</label>
+        <input class="field-input" id="custContact" type="text" placeholder="Phone or FB Messenger">
+      </div>
+      <div class="field-group">
+        <label class="field-label">📍 Delivery Address</label>
+        <textarea class="field-input" id="custAddress" placeholder="Full delivery address"></textarea>
+      </div>
+
+      <hr class="order-divider">
+      <div class="order-section-label">🛍️ Selected Items</div>
+
+      <div id="orderItems">
+        <div class="empty-state" id="emptyState">
+          <span>🛒</span>
           Tap products to add them!
         </div>
-</div>
-<div class="order-section-label">📦 Previous Orders</div>
-<div id="ordersList"></div>
-<div class="order-section-label">🚚 Shipping Option</div>
+      </div>
 
-<div class="shipping-options">
+      <div class="order-section-label">📦 Previous Orders</div>
+      <div id="ordersList"></div>
 
-  <button type="button"
-          class="shipping-option"
-          onclick="selectShipping('luzon')">
+      <div class="total-box">
+        <div class="total-label">
+          <div>Grand Total</div>
+          <div style="font-size: 9px; font-weight: 600; opacity: 0.8;">(includes all orders)</div>
+        </div>
+        <div class="total-amount" id="totalAmount">0</div>
+      </div>
 
-    <strong>Luzon (J&amp;T)</strong>
-    <span id="shipLuzon">₱80</span>
-  </button>
-
-  <button type="button"
-          class="shipping-option"
-          onclick="selectShipping('visayas')">
-
-    <strong>Visayas (J&amp;T)</strong>
-    <span id="shipVisayas">₱100</span>
-  </button>
-
-  <button type="button"
-          class="shipping-option"
-          onclick="selectShipping('mindanao')">
-
-    <strong>Mindanao (J&amp;T)</strong>
-    <span id="shipMindanao">₱120</span>
-  </button>
-
-  <button type="button"
-          class="shipping-option"
-          onclick="selectShipping('other')">
-
-    <strong>Lalamove / Shopee Checkout</strong>
-    <span>₱0</span>
-  </button>
-
-</div>
-<div class="total-box">
-<div class="total-label">
-<div>Grand Total</div>
-<div style="font-size: 9px; font-weight: 600; opacity: 0.8;">(includes all orders)</div>
-</div>
-<div class="total-amount" id="totalAmount">0</div>
-</div>
-<button class="submit-btn" onclick="addCurrentToOrders()" style="margin-top: 12px; padding: 12px; font-size: 13px; background: linear-gradient(135deg, #10B981, #059669);">
+      <button class="submit-btn" onclick="addCurrentToOrders()" style="margin-top: 12px; padding: 12px; font-size: 13px; background: linear-gradient(135deg, #10B981, #059669);">
         ➕ Add Current to Orders
       </button>
-<button class="submit-btn" onclick="startNewOrder()" style="margin-top: 8px; padding: 12px; font-size: 13px; background: linear-gradient(135deg, #F59E0B, #D97706);">
+
+      <button class="submit-btn" onclick="startNewOrder()" style="margin-top: 8px; padding: 12px; font-size: 13px; background: linear-gradient(135deg, #F59E0B, #D97706);">
         🆕 Start New Order
       </button>
-<div class="field-group" style="margin-top: 16px;">
-<label class="field-label">📝 Special Instructions</label>
-<textarea class="field-input" id="custNotes" placeholder="Anything else? 💕"></textarea>
-</div>
-<div class="field-group">
-<label class="field-label">📸 Payment Screenshot</label>
-<input accept="image/*" class="field-input" id="custImage" onchange="handlePaymentScreenshot(event)" type="file"/>
-<div class="image-preview" id="imagePreview" style="display:none;">
-<img alt="Payment screenshot preview" id="previewImg" src=""/>
-<button class="small-btn" onclick="removePaymentScreenshot()" type="button">Remove</button>
-</div>
-</div>
-<button class="submit-btn" disabled="" id="submitBtn" onclick="submitOrder()">
+
+      <div class="field-group" style="margin-top: 16px;">
+        <label class="field-label">📝 Special Instructions</label>
+        <textarea class="field-input" id="custNotes" placeholder="Anything else? 💕"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">📸 Payment Screenshot</label>
+        <input class="field-input" id="custImage" type="file" accept="image/*" onchange="handlePaymentScreenshot(event)">
+        <div class="image-preview" id="imagePreview" style="display:none;">
+          <img id="previewImg" src="" alt="Payment screenshot preview">
+          <button type="button" class="small-btn" onclick="removePaymentScreenshot()">Remove</button>
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="submitOrder()" disabled>
         💗 Submit My Order 💗
       </button>
-<div class="note-box">
+
+      <div class="note-box">
         A Peptide Babe Co coordinator will message you to confirm payment &amp; shipping 🌸
       </div>
-<div class="shipping-row">
-<div class="ship-badge">📦 J&amp;T Express</div>
-<div class="ship-badge">🚗 Lalamove</div>
-</div>
-<div class="payment-section">
-<div class="payment-header"><span>💳</span> Payment Options</div>
-<div class="payment-tabs">
-<button class="pay-tab active" onclick="showPayTab(this, 'qr')">QR Pay</button>
-</div>
-<div class="pay-content active" id="pay-qr">
-<div class="pay-info">
-<div class="pay-logo">📱 <strong>QR Payment</strong></div>
-<div class="pay-name">tinapa vdr</div>
-<div class="pay-detail">K** L** L.</div>
-<div class="pay-detail">Mobile: 0905 855 ••••</div>
-</div>
-<div class="qr-wrap"><img alt="QR Payment" class="qr-img qr-qr" src="payment-qr.jpg"/></div>
-</div>
-<div class="pay-note">📸 Send your payment screenshot to confirm your order!</div>
-</div>
-</div>
-</div>
-<div class="success-overlay" id="successOverlay">
-<div class="success-box">
-<span class="success-icon">💗</span>
-<h2>Yay, order sent!</h2>
-<p id="successMsg">Thank you so much! We'll message you soon to confirm your order and payment. 🌸</p>
-<button class="success-close" onclick="closeSuccess()">✨ Done ✨</button>
-</div>
-</div>
-<script src="script.js"></script>
+
+      <div class="shipping-row">
+        <div class="ship-badge">📦 J&amp;T Express</div>
+        <div class="ship-badge">🚗 Lalamove</div>
+      </div>
+
+      <div class="shipping-logo">
+        <img src="jntshipping.jpg" alt="J&amp;T Express Logo" class="ship-logo">
+      </div>
+
+      <div class="payment-section">
+        <div class="payment-header"><span>💳</span> Payment Options</div>
+        <div class="payment-tabs">
+          <button class="pay-tab active" onclick="showPayTab(this, 'gcash')">GCash</button>
+        </div>
+        <div class="pay-content active" id="pay-gcash">
+          <div class="pay-info">
+            <div class="pay-logo">📱 <strong>GCash</strong></div>
+            <div class="pay-name">tinapa vdr</div>
+            <div class="pay-detail">K** L** L.</div>
+            <div class="pay-detail">Mobile: 0905 855 ••••</div>
+          </div>
+          <div class="qr-wrap"><img src="payment-gcash.png" alt="GCash QR" class="qr-img qr-gcash"></div>
+        </div>
+        <div class="pay-note">📸 Send your payment screenshot to confirm your order!</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-box">
+      <span class="success-icon">💗</span>
+      <h2>Yay, order sent!</h2>
+      <p id="successMsg">Thank you so much! We'll message you soon to confirm your order and payment. 🌸</p>
+      <button class="success-close" onclick="closeSuccess()">✨ Done ✨</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
