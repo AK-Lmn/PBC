@@ -1,0 +1,195 @@
+[
+  {
+    "category": "Tirzepatide Complete Set",
+    "icon": "💉",
+    "pill": "w/ supplies",
+    "items": [
+      { "id": "tir10_set", "name": "TIR 10", "fullName": "TIR 10 — Complete Set", "price": 1300, "emoji": "💊" },
+      { "id": "tir15_set", "name": "TIR 15", "fullName": "TIR 15 — Complete Set", "price": 1400, "emoji": "💊" },
+      { "id": "tir20_set", "name": "TIR 20", "fullName": "TIR 20 — Complete Set", "price": 1600, "emoji": "💊" },
+      { "id": "tir30_set", "name": "TIR 30", "fullName": "TIR 30 — Complete Set", "price": 1700, "emoji": "💊" },
+      { "id": "tir40_set", "name": "TIR 40", "fullName": "TIR 40 — Complete Set", "price": 2250, "emoji": "💊" },
+      { "id": "tir50_set", "name": "TIR 50", "fullName": "TIR 50 — Complete Set", "price": 2550, "emoji": "💊" },
+      { "id": "tir60_set", "name": "TIR 60", "fullName": "TIR 60 — Complete Set", "price": 2700, "emoji": "💊" },
+      { "id": "tir80_set", "name": "TIR 80", "fullName": "TIR 80 — Complete Set", "price": 3100, "emoji": "💊" },
+      { "id": "tir100_set", "name": "TIR 100", "fullName": "TIR 100 — Complete Set", "price": 3300, "emoji": "💊" }
+    ]
+  },
+  {
+    "category": "Tirzepatide Vials & Bac Water",
+    "icon": "🧪",
+    "pill": "(VIALS ONLY - NO BACWATER INCLUDED)",
+    "items": [
+      { "id": "tir10_vial", "name": "TIR 10", "fullName": "Tirzepatide 10mg — Vials Only", "price": 900, "emoji": "🔬" },
+      { "id": "tir15_vial", "name": "TIR 15", "fullName": "Tirzepatide 15mg — Vials Only", "price": 1000, "emoji": "🔬" },
+      { "id": "tir20_vial", "name": "TIR 20", "fullName": "Tirzepatide 20mg — Vials Only", "price": 1100, "emoji": "🔬" },
+      { "id": "tir30_vial", "name": "TIR 30", "fullName": "Tirzepatide 30mg — Vials Only", "price": 1200, "emoji": "🔬" },
+      { "id": "tir40_vial", "name": "TIR 40", "fullName": "Tirzepatide 40mg — Vials Only", "price": 1600, "emoji": "🔬" },
+      { "id": "tir50_vial", "name": "TIR 50", "fullName": "Tirzepatide 50mg — Vials Only", "price": 1800, "emoji": "🔬" },
+      { "id": "tir60_vial", "name": "TIR 60", "fullName": "Tirzepatide 60mg — Vials Only", "price": 2100, "emoji": "🔬" },
+      { "id": "tir80_vial", "name": "TIR 80", "fullName": "Tirzepatide 80mg — Vials Only", "price": 2500, "emoji": "🔬" },
+      { "id": "tir100_vial", "name": "TIR 100", "fullName": "Tirzepatide 100mg — Vials Only", "price": 3000, "emoji": "🔬" }
+    ]
+  },
+  {
+    "category": "Retatrutide Complete Set",
+    "icon": "✨",
+    "pill": "w/ supplies",
+    "items": [
+      { "id": "reta10", "name": "RETA 10", "fullName": "RETA 10", "price": 1500, "emoji": "💫" },
+      { "id": "reta15", "name": "RETA 15", "fullName": "RETA 15", "price": 1700, "emoji": "💫" },
+      { "id": "reta20", "name": "RETA 20", "fullName": "RETA 20", "price": 2000, "emoji": "💫" },
+      { "id": "reta30", "name": "RETA 30", "fullName": "RETA 30", "price": 2500, "emoji": "💫" }
+    ]
+  },
+{
+    "category": "Other Peps Complete Set",
+    "icon": "🧬",
+    "pill": "W/ SUPPLIES",
+    "items": [
+      { "id": "cagrilintide_set", "name": "Cagrilintide", "fullName": "Cagrilintide — Complete Set", "price": 1400, "emoji": "🧬" },
+      { "id": "motsc40_set", "name": "MOTS-C 40mg", "fullName": "MOTS-C 40mg — Complete Set", "price": 2000, "emoji": "🧬" },
+      { "id": "motsc10_set", "name": "MOTS-C 10mg", "fullName": "MOTS-C 10mg — Complete Set", "price": 1250, "emoji": "🧬" },
+      { "id": "aod5_set", "name": "AOD-9604 5mg", "fullName": "AOD-9604 5mg — Complete Set", "price": 1400, "emoji": "🧬" },
+      { "id": "aod10_set", "name": "AOD-9604 10mg", "fullName": "AOD-9604 10mg — Complete Set", "price": 1700, "emoji": "🧬" },
+      { "id": "kpv10_set", "name": "KPV 10mg", "fullName": "KPV 10mg — Complete Set", "price": 1200, "emoji": "🧬" },
+      { "id": "kpv5_set", "name": "KPV 5mg", "fullName": "KPV 5mg — Complete Set", "price": 1100, "emoji": "🧬" },
+      { "id": "semax10_set", "name": "SEMAX 10mg", "fullName": "SEMAX 10mg — Complete Set", "price": 1300, "emoji": "🧬" },
+      { "id": "epitalon10_set", "name": "EPITALON 10mg", "fullName": "EPITALON 10mg — Complete Set", "price": 1000, "emoji": "🧬" },
+      { "id": "kisspeptin10_set", "name": "KISSPEPTIN 10mg", "fullName": "KISSPEPTIN 10mg — Complete Set", "price": 1300, "emoji": "🧬" },
+      { "id": "klow80_set", "name": "KLOW 80mg", "fullName": "KLOW 80mg — Complete Set", "price": 2000, "emoji": "⚡" },
+      { "id": "ss31_set", "name": "SS-31 10mg", "fullName": "SS-31 10mg — Complete Set", "price": 1300, "emoji": "⭐" },
+      { "id": "slupp332_set", "name": "SLU-PP-332", "fullName": "SLU-PP-332 — Complete Set", "price": 1400, "emoji": "🧬" },
+      { "id": "fatblaster_set", "name": "Fat Blaster", "fullName": "Fat Blaster — Complete Set", "price": 1500, "emoji": "🔥" },
+      { "id": "lipoc_set", "name": "Lipo C with B12", "fullName": "Lipo C with B12 — Complete Set", "price": 1200, "emoji": "🌟" },
+      { "id": "lcarnitine_set", "name": "L-Carnitine", "fullName": "L-Carnitine — Complete Set", "price": 1100, "emoji": "💪" },
+      { "id": "nad500_set", "name": "NAD+ 500mg", "fullName": "NAD+ 500mg — Complete Set", "price": 1400, "emoji": "⚡" },
+      { "id": "nad1000_set", "name": "NAD+ 1000mg", "fullName": "NAD+ 1000mg — Complete Set", "price": 1500, "emoji": "⚡" },
+      { "id": "bpc157_set", "name": "BPC-157 10mg", "fullName": "BPC-157 10mg — Complete Set", "price": 1250, "emoji": "🧬" },
+      { "id": "pinkgluta_set", "name": "Korean Pink Gluta (Snow White)", "fullName": "Korean Pink Gluta (Snow White) — Complete Set", "price": 1300, "emoji": "✨" },
+      { "id": "fuangluta_set", "name": "Fuan Gluta 1500mg", "fullName": "Fuan Gluta 1500mg — Complete Set", "price": 1400, "emoji": "✨" },
+      { "id": "amino50_set", "name": "5 Amino 50mg", "fullName": "5 Amino 50mg — Complete Set", "price": 1650, "emoji": "🧬" },
+      { "id": "amino5_set", "name": "5 Amino 5mg", "fullName": "5 Amino 5mg — Complete Set", "price": 1250, "emoji": "🧬" },
+      { "id": "ghkcu50_set", "name": "GHKCU 50 MG Set", "fullName": "GHKCU 50 MG Set — Complete Set", "price": 1250, "emoji": "💎" },
+      { "id": "ghkcu100_set", "name": "GHKCU 100 MG Set", "fullName": "GHKCU 100 MG Set — Complete Set", "price": 1400, "emoji": "💎" }
+    ]
+  },
+ {
+    "category": "Other Peps Vials Only",
+    "icon": "🧬",
+    "pill": "VIALS ONLY (NO BAC WATER INCLUDED)",
+    "items": [
+      { "id": "cagrilintide_vial", "name": "Cagrilintide", "fullName": "Cagrilintide — Vials Only", "price": 1100, "emoji": "🧬" },
+      { "id": "motsc40_vial", "name": "MOTS-C 40mg", "fullName": "MOTS-C 40mg — Vials Only", "price": 1500, "emoji": "🧬" },
+      { "id": "motsc10_vial", "name": "MOTS-C 10mg", "fullName": "MOTS-C 10mg — Vials Only", "price": 900, "emoji": "🧬" },
+      { "id": "aod5_vial", "name": "AOD-9604 5mg", "fullName": "AOD-9604 5mg — Vials Only", "price": 1100, "emoji": "🧬" },
+      { "id": "aod10_vial", "name": "AOD-9604 10mg", "fullName": "AOD-9604 10mg — Vials Only", "price": 1200, "emoji": "🧬" },
+      { "id": "kpv10_vial", "name": "KPV 10mg", "fullName": "KPV 10mg — Vials Only", "price": 900, "emoji": "🧬" },
+      { "id": "kpv5_vial", "name": "KPV 5mg", "fullName": "KPV 5mg — Vials Only", "price": 800, "emoji": "🧬" },
+      { "id": "semax10_vial", "name": "SEMAX 10mg", "fullName": "SEMAX 10mg — Vials Only", "price": 800, "emoji": "🧬" },
+      { "id": "epitalon10_vial", "name": "EPITALON 10mg", "fullName": "EPITALON 10mg — Vials Only", "price": 700, "emoji": "🧬" },
+      { "id": "kisspeptin10_vial", "name": "KISSPEPTIN 10mg", "fullName": "KISSPEPTIN 10mg — Vials Only", "price": 900, "emoji": "🧬" },
+      { "id": "klow80_vial", "name": "KLOW 80mg", "fullName": "KLOW 80mg — Vials Only", "price": 1500, "emoji": "⚡" },
+      { "id": "ss31_vial", "name": "SS-31 10mg", "fullName": "SS-31 10mg — Vials Only", "price": 1000, "emoji": "⭐" },
+      { "id": "slupp332_vial", "name": "SLU-PP-332", "fullName": "SLU-PP-332 — Vials Only", "price": 1000, "emoji": "🧬" },
+      { "id": "fatblaster_vial", "name": "Fat Blaster", "fullName": "Fat Blaster — Vials Only", "price": 1150, "emoji": "🔥" },
+      { "id": "lipoc_b12_vial", "name": "Lipo C with B12", "fullName": "Lipo C with B12 — Vials Only", "price": 900, "emoji": "🌟" },
+      { "id": "lcarnitine_vial", "name": "L-Carnitine", "fullName": "L-Carnitine — Vials Only", "price": 800, "emoji": "💪" },
+      { "id": "nad500_vial", "name": "NAD+ 500mg", "fullName": "NAD+ 500mg — Vials Only", "price": 1100, "emoji": "⚡" },
+      { "id": "nad1000_vial", "name": "NAD+ 1000mg", "fullName": "NAD+ 1000mg — Vials Only", "price": 1200, "emoji": "⚡" },
+      { "id": "bpc157_vial", "name": "BPC-157 10mg", "fullName": "BPC-157 10mg — Vials Only", "price": 1000, "emoji": "🧬" },
+      { "id": "pinkgluta_vial", "name": "Korean Pink Gluta (Snow White)", "fullName": "Korean Pink Gluta (Snow White) — Vials Only", "price": 800, "emoji": "✨" },
+      { "id": "fuangluta_vial", "name": "Fuan Gluta 1500mg", "fullName": "Fuan Gluta 1500mg — Vials Only", "price": 900, "emoji": "✨" },
+      { "id": "amino50_vial", "name": "5 Amino 50mg", "fullName": "5 Amino 50mg — Vials Only", "price": 1350, "emoji": "🧬" },
+      { "id": "amino5_vial", "name": "5 Amino 5mg", "fullName": "5 Amino 5mg — Vials Only", "price": 1100, "emoji": "🧬" },
+      { "id": "ghkcu50_vial", "name": "GHKCU 50 MG Vials Only", "fullName": "GHKCU 50 MG Vials Only", "price": 800, "emoji": "💎" },
+      { "id": "ghkcu100_vial", "name": "GHKCU 100 MG Vials Only", "fullName": "GHKCU 100 MG Vials Only", "price": 900, "emoji": "💎" }
+    ]
+  },
+{
+    "category": "Mesolipo Vial/Box",
+    "icon": "🌸",
+    "pill": "VIAL & BOX",
+    "items": [
+      { "id": "aqualyx_vial", "name": "Aqualyx Vial", "fullName": "Aqualyx Vial", "price": 350, "emoji": "💧" },
+      { "id": "aqualyx_box", "name": "Aqualyx Box", "fullName": "Aqualyx Box", "price": 2800, "emoji": "📦" },
+      { "id": "lemon_china_10ml", "name": "Lemon China 10ML", "fullName": "Lemon China 10ML", "price": 500, "emoji": "🍋" },
+      { "id": "lemon_china_box", "name": "Lemon China Box", "fullName": "Lemon China Box", "price": 4800, "emoji": "📦" },
+      { "id": "lemon_china_50ml", "name": "Lemon China 50ML", "fullName": "Lemon China 50ML", "price": 1200, "emoji": "🍋" },
+      { "id": "lemon_korea_vial", "name": "Lemon Korea Vial", "fullName": "Lemon Korea Vial", "price": 900, "emoji": "🍋" },
+      { "id": "lemon_korea_box", "name": "Lemon Korea Box", "fullName": "Lemon Korea Box", "price": 4500, "emoji": "📦" },
+      { "id": "lipovela_vial", "name": "Lipo Vela Vial", "fullName": "Lipo Vela Vial", "price": 400, "emoji": "💉" },
+      { "id": "lipovela_box", "name": "Lipo Vela Box", "fullName": "Lipo Vela Box", "price": 3000, "emoji": "📦" },
+      { "id": "lipovela_v_line", "name": "Lipo Vela V Line", "fullName": "Lipo Vela V Line", "price": 450, "emoji": "💉" },
+      { "id": "v_line_box", "name": "V Line Box", "fullName": "V Line Box", "price": 3700, "emoji": "📦" },
+      { "id": "pine_bottle", "name": "Pine Bottle", "fullName": "Pine Bottle", "price": 900, "emoji": "🌲" },
+      { "id": "pine_bottle_box", "name": "Pine Bottle Box", "fullName": "Pine Bottle Box", "price": 4400, "emoji": "📦" }
+    ]
+  },
+  {
+    "category": "Skin Boosters",
+    "icon": "🌟",
+    "pill": "",
+    "items": [
+      { "id": "pink_ha", "name": "Pink Hyaluronic Acid", "fullName": "Pink Hyaluronic Acid", "price": 380, "emoji": "🌸" },
+      { "id": "snap8", "name": "Snap 8", "fullName": "Snap 8", "price": 500, "emoji": "🧬" },
+      { "id": "pdrn", "name": "PDRN", "fullName": "PDRN", "price": 420, "emoji": "🌟" },
+      { "id": "anti_acne", "name": "Anti-Acne", "fullName": "Anti-Acne", "price": 500, "emoji": "✨" },
+      { "id": "ghkcu_serum", "name": "GHKCU Serum", "fullName": "GHKCU Serum", "price": 420, "emoji": "💎" },
+      { "id": "gluta_vitc_serum", "name": "Gluta with Vit-C & Hyuronic Serum", "fullName": "Gluta with Vit-C & Hyuronic Serum", "price": 420, "emoji": "💧" }
+    ]
+  },
+  {
+    "category": "Vitamins",
+    "icon": "💊",
+    "pill": "30's tablets",
+    "items": [
+      { "id": "fortima", "name": "FORTIMA", "fullName": "FORTIMA", "price": 400, "emoji": "💊" }
+    ]
+  },
+{
+    "category": "Reseller Package",
+    "icon": "📦",
+    "pill": "(VIALS ONLY - NO BACWATER INCLUDED)",
+    "items": [
+      { "id": "reseller_bac3ml", "name": "3 ML Bacwater", "fullName": "Reseller Box - 3 ML Bacwater", "price": 750, "emoji": "💧" },
+      { "id": "reseller_bac5ml", "name": "5 ML Bacwater", "fullName": "Reseller Box - 5 ML Bacwater", "price": 950, "emoji": "💧" },
+      { "id": "reseller_bac10ml", "name": "10 ML Bacwater", "fullName": "Reseller Box - 10 ML Bacwater", "price": 1100, "emoji": "💧" },
+      { "id": "reseller_tir10", "name": "Tirzepatide 10mg", "fullName": "Reseller Box - Tirzepatide 10mg", "price": 6500, "emoji": "📦" },
+      { "id": "reseller_tir15", "name": "Tirzepatide 15mg", "fullName": "Reseller Box - Tirzepatide 15mg", "price": 7500, "emoji": "📦" },
+      { "id": "reseller_tir30", "name": "Tirzepatide 30mg", "fullName": "Reseller Box - Tirzepatide 30mg", "price": 9000, "emoji": "📦" },
+      { "id": "reseller_tir60", "name": "Tirzepatide 60mg", "fullName": "Reseller Box - Tirzepatide 60mg", "price": 14000, "emoji": "📦" },
+      { "id": "reseller_cu50", "name": "GHKCU 50", "fullName": "Reseller Box - GHKCU 50", "price": 3500, "emoji": "📦" },
+      { "id": "reseller_cu100", "name": "GHKCU 100", "fullName": "Reseller Box - GHKCU 100", "price": 4500, "emoji": "📦" },
+      { "id": "reseller_lemon", "name": "Fuan Glutathione", "fullName": "Reseller Box - Fuan Glutathione", "price": 7000, "emoji": "🍋" },
+      { "id": "reseller_lipoc", "name": "Korean Pink Gluta", "fullName": "Reseller Box - Korean Pink Gluta", "price": 4500, "emoji": "🌟" },
+      { "id": "reseller_mega", "name": "Mega Reseller Pack", "fullName": "Mega Reseller Pack (5) TIR10 (5) TIR15 (5) TIR20 (5) TIR30", "price": 20000, "emoji": "🏆" }
+    ]
+  },
+  {
+    "category": "Add Ons",
+    "icon": "➕",
+    "pill": "",
+    "items": [
+      { "id": "bac3ml", "name": "3 ml Bacwater", "fullName": "3 ml Bacwater", "price": 80, "emoji": "💧" },
+      { "id": "bac5ml", "name": "5 ml Bacwater", "fullName": "5 ml Bacwater", "price": 95, "emoji": "💧" },
+      { "id": "bac10ml", "name": "10 ml Bacwater", "fullName": "10 ml Bacwater", "price": 120, "emoji": "💧" },
+      { "id": "pharmabac10ml", "name": "10 ml Pharma Bac", "fullName": "10 ml Pharma Bac", "price": 130, "emoji": "💧" },
+      { "id": "alcohol_pads", "name": "Alcohol Pads", "fullName": "Alcohol Pads", "price": 5, "emoji": "🧻" },
+      { "id": "insulin_syringe", "name": "Insulin Syringe", "fullName": "Insulin Syringe", "price": 12, "emoji": "🩸" },
+      { "id": "recon_syringe", "name": "Recon Syringe", "fullName": "Recon Syringe", "price": 10, "emoji": "💉" },
+      { "id": "peppy_pen", "name": "Reusable Peppy Pen Complete Set", "fullName": "Reusable Peppy Pen Complete Set", "price": 1000, "emoji": "🖊️" },
+      { "id": "vial_case", "name": "Cute Single Vial Case", "fullName": "Cute Single Vial Case", "price": 100, "emoji": "🎀" }
+    ]
+ },
+  {
+    "category": "Shipping Options Data",
+    "type": "shipping_config",
+    "rates": {
+      "luzon": { "1": 80, "2": 95, "max": 120 },
+      "visayas": { "1": 100, "2": 140, "max": 180 },
+      "mindanao": { "1": 120, "2": 180, "max": 210 },
+      "other": { "1": 0, "2": 0, "max": 0 }
+    }
+  }
+]
