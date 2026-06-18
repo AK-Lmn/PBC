@@ -1,135 +1,99 @@
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8o3AhN6cWrhbCtDzRKmDROCGCAKDH8eZ4H2HlFz0mWGeqpcuCB_KgaWvnjsBq-r4n/exec';
 
+// ── Cart / State Hook ───────────────────────────────────────
 const cart = {};
 const orders = [];
 let paymentImageData = '';
 let paymentImageName = '';
-let selectedShippingRegion = '';
 
-const SHIPPING_RATES = {
-  Luzon: { one: 80, two: 95, upto6: 120 },
-  Visayas: { one: 100, two: 140, upto6: 180 },
-  Mindanao: { one: 120, two: 180, upto6: 210 },
-  Other: { one: 0, two: 0, upto6: 0 }
+let shippingConfig = {
+  luzon: { 1: 80, 2: 95, max: 120 },
+  visayas: { 1: 100, 2: 140, max: 180 },
+  mindanao: { 1: 120, 2: 180, max: 210 },
+  other: { 1: 0, 2: 0, max: 0 }
 };
+let selectedRegion = ""; 
+let selectedShippingCost = 0;
 
-function normalizeShippingRegion(region) {
-  if (!region) return '';
-
-  const value = String(region).toLowerCase();
-
-  if (value === 'luzon') return 'Luzon';
-  if (value === 'visayas') return 'Visayas';
-  if (value === 'mindanao') return 'Mindanao';
-  if (value === 'other' || value.includes('lalamove') || value.includes('shopee')) return 'Other';
-
-  return region;
-}
-
-function getShippingLabel(region = selectedShippingRegion) {
-  if (region === 'Other') return 'Lalamove / Shopee Checkout';
-  return region || 'No shipping selected';
-}
-
-function getTotalItemQty() {
-  let qty = 0;
-
-  orders.forEach(order => {
-    qty += order.qty || 0;
-  });
-
+function getTotalItemCount() {
+  let totalPcs = 0;
+  
   Object.values(cart).forEach(item => {
-    qty += item.qty;
+    totalPcs += item.qty;
   });
-
-  return qty;
-}
-
-function getShippingBracket(qty) {
-  if (qty <= 0) return 'none';
-  if (qty === 1) return 'one';
-  if (qty === 2) return 'two';
-  return 'upto6';
-}
-
-function getShippingFee(region = selectedShippingRegion) {
-  region = normalizeShippingRegion(region);
-
-  const qty = getTotalItemQty();
-  const bracket = getShippingBracket(qty);
-
-  if (!region || bracket === 'none') return 0;
-  if (!SHIPPING_RATES[region]) return 0;
-
-  return SHIPPING_RATES[region][bracket] || 0;
-}
-
-function updateShippingUI() {
-  const qty = getTotalItemQty();
-  const bracket = getShippingBracket(qty);
-
-  const bracketText =
-    bracket === 'one'
-      ? '1pc'
-      : bracket === 'two'
-        ? '2pcs'
-        : qty > 0
-          ? 'up to 6pcs'
-          : 'no items';
-
-  ['Luzon', 'Visayas', 'Mindanao'].forEach(region => {
-    const priceEl = document.getElementById('ship' + region);
-
-    if (priceEl) {
-      priceEl.textContent =
-        qty > 0
-          ? '₱' + SHIPPING_RATES[region][bracket].toLocaleString()
-          : '₱0';
+  
+  orders.forEach(order => {
+    if (order.itemLines) {
+      order.itemLines.forEach(line => {
+        const match = line.match(/×(\d+)/);
+        if (match) {
+          totalPcs += parseInt(match[1]) || 1;
+        }
+      });
     }
   });
 
-  const otherEl = document.getElementById('shipOther');
-  if (otherEl) otherEl.textContent = '₱0';
+  return totalPcs;
+}
 
-  const helper = document.getElementById('shippingHelper');
-  if (helper) {
-    helper.textContent =
-      qty > 0
-        ? `${qty} item(s) selected • rate bracket: ${bracketText}`
-        : 'Select region after choosing items';
+// ── Dynamic Shipping Calculator ──────────────────────────────
+function calculateDynamicShipping() {
+  const totalItems = getTotalItemCount();
+
+  if (totalItems === 0) {
+    selectedRegion = "";
+    selectedShippingCost = 0;
+    
+    document.querySelectorAll('.shipping-option').forEach(btn => btn.classList.remove('active'));
+    
+    ["luzon", "visayas", "mindanao", "other"].forEach(r => {
+      const el = document.getElementById(`ship${r.charAt(0).toUpperCase() + r.slice(1)}`);
+      if (el) {
+        el.innerText = "₱0";
+      } else if (r === "other") {
+        const otherBtn = document.querySelector(`[onclick="selectShipping('other')"] span`);
+        if (otherBtn) otherBtn.innerText = "₱0";
+      }
+    });
+    return;
   }
 
-  document.querySelectorAll('.shipping-option').forEach(btn => {
-    const btnRegion = normalizeShippingRegion(btn.dataset.region || btn.dataset.shipping);
-    const isSelected = btnRegion === selectedShippingRegion;
+  ["luzon", "visayas", "mindanao", "other"].forEach(r => {
+    let el = document.getElementById(`ship${r.charAt(0).toUpperCase() + r.slice(1)}`);
+    if (!el && r === "other") {
+      el = document.querySelector(`[onclick="selectShipping('other')"] span`);
+    }
 
-    btn.classList.toggle('selected', isSelected);
-    btn.classList.toggle('active', isSelected);
+    if (el && shippingConfig[r]) {
+      const count = totalItems <= 1 ? "1" : (totalItems === 2 ? "2" : "max");
+      el.innerText = `₱${shippingConfig[r][count]}`;
+    }
   });
 
-  const selected = document.getElementById('shippingSelected');
-  if (selected) {
-    selected.textContent = selectedShippingRegion
-      ? `${getShippingLabel()} shipping: ₱${getShippingFee().toLocaleString()}`
-      : 'No shipping selected';
+  if (selectedRegion && shippingConfig[selectedRegion]) {
+    const count = totalItems <= 1 ? "1" : (totalItems === 2 ? "2" : "max");
+    selectedShippingCost = shippingConfig[selectedRegion][count];
+  } else {
+    selectedShippingCost = 0;
   }
 }
 
-function selectShipping(input) {
-  let region = '';
-
-  if (typeof input === 'string') {
-    region = input;
-  } else if (input && input.dataset) {
-    region = input.dataset.region || input.dataset.shipping || '';
-  } else if (event && event.currentTarget) {
-    region = event.currentTarget.dataset.region || event.currentTarget.dataset.shipping || '';
+function selectShipping(region) {
+  if (getTotalItemCount() === 0) {
+    return; 
   }
 
-  selectedShippingRegion = normalizeShippingRegion(region);
+  selectedRegion = region;
+
+  document.querySelectorAll('.shipping-option').forEach(btn => btn.classList.remove('active'));
+  
+  const targetBtn = event.currentTarget || document.querySelector(`[onclick="selectShipping('${region}')"]`);
+  if (targetBtn) targetBtn.classList.add('active');
+
   renderOrder();
 }
 
+// ── Toggle product selected / deselected ───────────────────
 function toggleProduct(card) {
   const key = card.dataset.name;
 
@@ -139,38 +103,36 @@ function toggleProduct(card) {
   } else {
     card.classList.add('selected');
     cart[key] = {
-      name: key,
+      name:  key,
       price: parseInt(card.dataset.price),
-      qty: 1
+      qty:   1
     };
-
     card.querySelector('.qty-num').textContent = '1';
   }
 
   renderOrder();
 }
 
+// ── Change quantity ─────────────────────────────────────────
 function changeQty(e, btn, delta) {
   e.stopPropagation();
-
   const card = btn.closest('.product-card');
-  const key = card.dataset.name;
-
+  const key  = card.dataset.name;
   if (!cart[key]) return;
 
   cart[key].qty = Math.max(1, cart[key].qty + delta);
   card.querySelector('.qty-num').textContent = cart[key].qty;
-
   renderOrder();
 }
 
+// ── Render order summary panel ──────────────────────────────
 function renderOrder() {
   const container = document.getElementById('orderItems');
-  const keys = Object.keys(cart);
+  const keys      = Object.keys(cart);
   const ordersList = document.getElementById('ordersList');
 
   let currentTotal = 0;
-  let html = '';
+  let html  = '';
 
   if (!keys.length) {
     html = `
@@ -181,9 +143,8 @@ function renderOrder() {
   } else {
     keys.forEach(k => {
       const item = cart[k];
-      const sub = item.price * item.qty;
+      const sub  = item.price * item.qty;
       currentTotal += sub;
-
       html += `
         <div class="order-item current-item">
           <div class="item-info">
@@ -195,21 +156,9 @@ function renderOrder() {
     });
   }
 
-  if (selectedShippingRegion && getTotalItemQty() > 0) {
-    html += `
-      <div class="order-item current-item">
-        <div class="item-info">
-          <div class="item-name">🚚 Shipping Fee</div>
-          <div class="item-qty">${getShippingLabel()}</div>
-        </div>
-        <div class="item-price">₱${getShippingFee().toLocaleString()}</div>
-      </div>`;
-  }
-
   container.innerHTML = html;
 
   let ordersHtml = '';
-
   if (orders.length) {
     orders.forEach((order, index) => {
       ordersHtml += `
@@ -223,44 +172,37 @@ function renderOrder() {
   } else {
     ordersHtml = '<div style="opacity: 0.5; font-size: 12px; text-align: center; padding: 20px; color: var(--muted);">No previous orders</div>';
   }
-
   ordersList.innerHTML = ordersHtml;
 
-  updateShippingUI();
+  calculateDynamicShipping();
+
   updateTotals(currentTotal, calculateGrandTotal());
 }
 
 function updateTotals(currentTotal, grandTotal) {
   document.getElementById('totalAmount').textContent = grandTotal.toLocaleString();
-
-  document.getElementById('submitBtn').disabled =
-    grandTotal === 0 ||
-    !paymentImageData ||
-    !selectedShippingRegion;
+  document.getElementById('submitBtn').disabled = grandTotal === 0 || !paymentImageData;
 }
 
 function calculateGrandTotal() {
   let grand = 0;
-
-  orders.forEach(order => {
-    grand += order.total;
-  });
-
-  Object.keys(cart).forEach(k => {
-    const item = cart[k];
+  
+  orders.forEach(order => grand += order.total);
+  Object.values(cart).forEach(item => {
     grand += item.price * item.qty;
   });
-
-  grand += getShippingFee();
-
+  
+  grand += selectedShippingCost;
+  
   return grand;
 }
 
+// ── Submit ALL orders to Google Sheets ──────────────────────
 async function submitOrder() {
-  const name = document.getElementById('custName').value.trim();
+  const name    = document.getElementById('custName').value.trim();
   const contact = document.getElementById('custContact').value.trim();
   const address = document.getElementById('custAddress').value.trim();
-  const notes = document.getElementById('custNotes').value.trim();
+  const notes   = document.getElementById('custNotes').value.trim();
 
   if (!name || !contact) {
     alert('Please enter your name and contact details 💗');
@@ -277,22 +219,15 @@ async function submitOrder() {
     return;
   }
 
-  if (!selectedShippingRegion) {
-    alert('Please select a shipping option 🚚');
-    return;
-  }
-
   let allItemLines = [];
-
   orders.forEach(order => allItemLines.push(...order.itemLines));
-
-  Object.keys(cart).forEach(k => {
-    const item = cart[k];
+  Object.values(cart).forEach(item => {
     allItemLines.push(`${item.name} ×${item.qty} = ₱${(item.price * item.qty).toLocaleString()}`);
   });
-
-  const shippingFee = getShippingFee();
-  allItemLines.push(`Shipping - ${getShippingLabel()} = ₱${shippingFee.toLocaleString()}`);
+  
+  if (selectedRegion) {
+    allItemLines.push(`[Shipping: ${selectedRegion.toUpperCase()} = ₱${selectedShippingCost}]`);
+  }
 
   const grandTotal = calculateGrandTotal();
 
@@ -303,11 +238,10 @@ async function submitOrder() {
   const payload = {
     name,
     contact,
-    address: address || '—',
-    items: allItemLines.join(' | '),
-    total: '₱' + grandTotal.toLocaleString(),
-    notes: notes || '—',
-    shipping: `${getShippingLabel()} - ₱${shippingFee.toLocaleString()}`,
+    address:   address || '—',
+    items:     allItemLines.join(' | '),
+    total:     '₱' + grandTotal.toLocaleString(),
+    notes:     notes || '—',
     timestamp: new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' }),
     imageName: paymentImageName || '—',
     imageData: paymentImageData || ''
@@ -315,10 +249,10 @@ async function submitOrder() {
 
   try {
     await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
+      method:  'POST',
+      mode:    'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body:    JSON.stringify(payload)
     });
   } catch (err) {
     console.error('Submission error:', err);
@@ -343,28 +277,25 @@ function handlePaymentScreenshot(event) {
     paymentImageName = '';
     previewEl.style.display = 'none';
     previewImg.src = '';
-    updateTotals(0, calculateGrandTotal());
+    renderOrder();
     return;
   }
 
   if (file.size > 5 * 1024 * 1024) {
     alert('Please choose an image smaller than 5MB.');
     event.target.value = '';
-    updateTotals(0, calculateGrandTotal());
+    renderOrder();
     return;
   }
 
   paymentImageName = file.name;
-
   const reader = new FileReader();
-
   reader.onload = () => {
     paymentImageData = reader.result;
     previewImg.src = paymentImageData;
     previewEl.style.display = 'flex';
-    updateTotals(0, calculateGrandTotal());
+    renderOrder();
   };
-
   reader.readAsDataURL(file);
 }
 
@@ -378,80 +309,120 @@ function removePaymentScreenshot() {
   paymentImageName = '';
   previewImg.src = '';
   previewEl.style.display = 'none';
-
-  updateTotals(0, calculateGrandTotal());
+  renderOrder();
 }
 
+// ── Close success modal & reset ─────────────────────────────
 function closeSuccess() {
   document.getElementById('successOverlay').classList.remove('show');
 
   orders.length = 0;
   Object.keys(cart).forEach(k => delete cart[k]);
+  selectedRegion = "";
+  selectedShippingCost = 0;
+  
+  document.querySelectorAll('.shipping-option').forEach(btn => btn.classList.remove('active'));
+  renderOrder();
 
   document.querySelectorAll('.product-card.selected')
     .forEach(c => c.classList.remove('selected'));
 
-  document.querySelectorAll('.qty-num')
-    .forEach(span => span.textContent = '1');
-
   ['custName', 'custContact', 'custAddress', 'custNotes']
     .forEach(id => document.getElementById(id).value = '');
-
-  selectedShippingRegion = '';
   removePaymentScreenshot();
-  renderOrder();
 }
 
+// ── Add current cart to orders list ────────────────────────
 function addCurrentToOrders() {
   const keys = Object.keys(cart);
-
   if (keys.length === 0) {
     alert('No items in current cart 💗');
     return;
   }
-
-  const orderTotal = Object.values(cart)
-    .reduce((sum, item) => sum + item.price * item.qty, 0);
-
+  const orderTotal = Object.values(cart).reduce((sum, item) => sum + item.price * item.qty, 0);
   const itemLines = keys.map(k => {
     const item = cart[k];
     return `${item.name} ×${item.qty} = ₱${(item.price * item.qty).toLocaleString()}`;
   });
-
-  const orderQty = Object.values(cart)
-    .reduce((sum, item) => sum + item.qty, 0);
-
-  orders.push({
-    total: orderTotal,
-    itemLines,
-    qty: orderQty
-  });
+  orders.push({ total: orderTotal, itemLines });
 
   Object.keys(cart).forEach(k => delete cart[k]);
-
-  document.querySelectorAll('.product-card.selected')
-    .forEach(c => c.classList.remove('selected'));
-
-  document.querySelectorAll('.qty-num')
-    .forEach(span => span.textContent = '1');
-
+  document.querySelectorAll('.product-card.selected').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.qty-num').forEach(span => span.textContent = '1');
   renderOrder();
 }
 
 function startNewOrder() {
   Object.keys(cart).forEach(k => delete cart[k]);
-
-  document.querySelectorAll('.product-card.selected')
-    .forEach(c => c.classList.remove('selected'));
-
-  document.querySelectorAll('.qty-num')
-    .forEach(span => span.textContent = '1');
-
+  document.querySelectorAll('.product-card.selected').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.qty-num').forEach(span => span.textContent = '1');
   renderOrder();
 }
 
+// ── Dynamic Master Database JSON Loader ─────────────────────
+async function loadProductsFromJSON() {
+  try {
+    const response = await fetch("products.json");
+    const productData = await response.json();
+    
+    const catalogContainer = document.getElementById("productCatalog");
+    if (!catalogContainer) return;
+
+    let catalogHTML = "";
+
+    productData.forEach(group => {
+      // INTERCEPT CONFIG
+      if (group.type === "shipping_config" && group.rates) {
+        shippingConfig = group.rates;
+        return; 
+      }
+
+      let pillHTML = group.pill ? `<span class="cat-pill">${group.pill}</span>` : "";
+      
+      catalogHTML += `
+        <div class="product-group" data-group>
+          <div class="cat-header">
+            <span class="cat-icon">${group.icon}</span>
+            <span class="cat-title">${group.category}</span>
+            ${pillHTML}
+          </div>
+          <div class="product-grid">
+      `;
+
+      group.items.forEach(item => {
+        catalogHTML += `
+          <div class="product-card" data-name="${item.fullName}" data-price="${item.price}" onclick="toggleProduct(this)">
+            <div class="card-check">✓</div>
+            <span class="card-emoji">${item.emoji}</span>
+            <div class="card-name">${item.name}</div>
+            <div class="card-price">${item.price.toLocaleString()}</div>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty-num">1</span>
+              <button class="qty-btn" onclick="changeQty(event,this,1)">+</button>
+            </div>
+          </div>
+        `;
+      });
+
+      catalogHTML += `
+          </div>
+        </div>
+        <hr class="cat-divider">
+      `;
+    });
+
+    catalogContainer.innerHTML = catalogHTML;
+    
+    calculateDynamicShipping();
+  } catch (error) {
+    console.error("Hala, nag-error ang configuration rendering mapping:", error);
+  }
+}
+
+// ── Search & Document Base Initialization Listener ──────────
 document.addEventListener('DOMContentLoaded', () => {
-  renderOrder();
+  loadProductsFromJSON();
 
   document.getElementById('searchInput').addEventListener('input', function () {
     const q = this.value.toLowerCase();
@@ -463,21 +434,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-group]').forEach(group => {
       const hasVisible = [...group.querySelectorAll('.product-card')]
         .some(c => c.style.display !== 'none');
-
       group.style.display = hasVisible ? '' : 'none';
     });
 
     document.querySelectorAll('.cat-divider')
-      .forEach(d => {
-        d.style.display = q ? 'none' : '';
-      });
+      .forEach(d => { d.style.display = q ? 'none' : ''; });
   });
 });
 
+// ── Payment tab switcher ────────────────────────────────────
 function showPayTab(btn, id) {
   document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.pay-content').forEach(c => c.classList.remove('active'));
-
   btn.classList.add('active');
   document.getElementById('pay-' + id).classList.add('active');
 }
