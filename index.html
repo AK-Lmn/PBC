@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peptide Babe Co 💗 Order Form</title>
-    
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://peptide-babe-co.vercel.app/">
   <meta property="og:title" content="Peptide Babe Co 💗 Order Form">
@@ -13,147 +12,172 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Vercel Web Analytics -->
+
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
-  
-  <!-- Vercel Speed Insights -->
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 <body>
-
-  <header>
-    <div class="brand">Peptide Babe Co 💗</div>
-    <div class="brand-sub">✨ Your Wellness Bestie ✨</div>
-  </header>
+  <div class="top-shell">
+    <header>
+      <div class="brand-wrap">
+        <div class="brand-mark">✿</div>
+        <div>
+          <div class="brand">Peptide Babe Co.</div>
+          <div class="brand-sub">Your wellness, simplified</div>
+        </div>
+      </div>
+      <button type="button" class="header-summary" id="headerSummary" onclick="scrollToCheckout()">0 items · ₱0</button>
+    </header>
+    <div class="search-wrap search-wrap--header">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="searchInput" type="text" placeholder="Search products...">
+    </div>
+    <div class="category-strip" id="categoryStrip"></div>
+  </div>
 
   <div class="layout">
-
     <div class="products-panel">
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input class="search-input" id="searchInput" type="text" placeholder="Search products...">
-      </div>
 
       <div id="productCatalog"></div>
     </div>
 
     <div class="order-panel">
-      <div class="panel-brand">My Order 🛒</div>
-      <p class="panel-sub">💌 Fill in your details below</p>
-
-      <div class="field-group">
-        <label class="field-label">💗 Full Name</label>
-        <input class="field-input" id="custName" type="text" placeholder="Your name">
-      </div>
-      <div class="field-group">
-        <label class="field-label">📱 Contact / Messenger</label>
-        <input class="field-input" id="custContact" type="text" placeholder="Phone or FB Messenger">
-      </div>
-      <div class="field-group">
-        <label class="field-label">📍 Delivery Address</label>
-        <textarea class="field-input" id="custAddress" placeholder="Full delivery address"></textarea>
-      </div>
-
-      <hr class="order-divider">
-      <div class="order-section-label">🛍️ Selected Items</div>
-
-      <div id="orderItems">
-        <div class="empty-state" id="emptyState">
-          <span>🛒</span> Tap products to add them!
-        </div>
-      </div>
-
-      <div class="order-section-label">📦 Previous Orders</div>
-      <div id="ordersList"></div>
-
-      <div class="order-section-label">🚚 Shipping Option</div>
-      <div class="shipping-options">
-        <button type="button" class="shipping-option" onclick="selectShipping('luzon')">
-          <strong>Luzon (J&amp;T)</strong> <span id="shipLuzon">₱0</span>
-        </button>
-        <button type="button" class="shipping-option" onclick="selectShipping('visayas')">
-          <strong>Visayas (J&amp;T)</strong> <span id="shipVisayas">₱0</span>
-        </button>
-        <button type="button" class="shipping-option" onclick="selectShipping('mindanao')">
-          <strong>Mindanao (J&amp;T)</strong> <span id="shipMindanao">₱0</span>
-        </button>
-        <button type="button" class="shipping-option" onclick="selectShipping('other')">
-          <strong>Lalamove / Shopee Checkout</strong> <span>₱0</span>
-        </button>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">
-          <div>Grand Total</div>
-          <div style="font-size: 9px; font-weight: 600; opacity: 0.8;">(includes all orders)</div>
-        </div>
-        <div class="total-amount" id="totalAmount">0</div>
-      </div>
-
-      <button class="submit-btn" onclick="addCurrentToOrders()" style="margin-top: 12px; padding: 12px; font-size: 13px; background: linear-gradient(135deg, #10B981, #059669);">
-        ➕ Add Current to Orders
-      </button>
-
-      <button class="submit-btn" onclick="startNewOrder()" style="margin-top: 8px; padding: 12px; font-size: 13px; background: linear-gradient(135deg, #F59E0B, #D97706);">
-        🆕 Start New Order
-      </button>
-
-      <div class="field-group" style="margin-top: 16px;">
-        <label class="field-label">📝 Special Instructions</label>
-        <textarea class="field-input" id="custNotes" placeholder="Anything else? 💕"></textarea>
-      </div>
-
-      <div class="field-group">
-        <label class="field-label">📸 Payment Screenshot</label>
-        <input class="field-input" id="custImage" type="file" accept="image/*" onchange="handlePaymentScreenshot(event)">
-        <div class="image-preview" id="imagePreview" style="display:none;">
-          <img id="previewImg" src="" alt="Payment screenshot preview">
-          <button type="button" class="small-btn" onclick="removePaymentScreenshot()">Remove</button>
-        </div>
-      </div>
-
-      <button class="submit-btn" id="submitBtn" onclick="submitOrder()" disabled>
-        💗 Submit My Order 💗
-      </button>
-
-      <div class="note-box">
-        A Peptide Babe Co coordinator will message you to confirm payment &amp; shipping 🌸
-      </div>
-
-      <div class="shipping-row">
-        <div class="ship-badge">📦 J&amp;T Express</div>
-        <div class="ship-badge">🚗 Lalamove</div>
-      </div>
-
-      <div class="payment-section">
-        <div class="payment-header"><span>💳</span> Payment Options</div>
-        <div class="payment-tabs">
-          <button class="pay-tab active" onclick="showPayTab(this, 'gcash')">GCash</button>
-        </div>
-        <div class="pay-content active" id="pay-gcash">
-          <div class="pay-info">
-            <div class="pay-logo">📱 <strong>GCash</strong></div>
-            <div class="pay-name">tinapa vdr</div>
-            <div class="pay-detail">K** L** L.</div>
-            <div class="pay-detail">Mobile: 0905 855 ••••</div>
+      <section class="panel-card panel-card--order">
+        <div class="panel-brand">My Order</div>
+        <p class="panel-sub">Browse products and tap Add</p>
+        <div id="orderItems">
+          <div class="empty-state" id="emptyState">
+            <span>🗂</span>
+            No items yet
+            <small>Browse products and tap Add</small>
           </div>
-          <div class="qr-wrap"><img src="payment-gcash.png" alt="GCash QR" class="qr-img qr-gcash"></div>
         </div>
-        <div class="note-box style="margin-top: 8px;">📸 Send your payment screenshot to confirm your order!</div>
-      </div>
+      </section>
 
+      <section class="panel-card">
+        <div class="panel-section-title">Customer Details</div>
+        <div class="field-group">
+          <label class="field-label">Full Name *</label>
+          <input class="field-input" id="custName" type="text" placeholder="Your full name">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Contact Number *</label>
+          <input class="field-input" id="custContact" type="text" placeholder="09XX-XXX-XXXX">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Delivery Address *</label>
+          <textarea class="field-input" id="custAddress" placeholder="Full delivery address (barangay, city, province)"></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Order Notes</label>
+          <textarea class="field-input" id="custNotes" placeholder="Special instructions or requests (optional)"></textarea>
+        </div>
+      </section>
+
+      <section class="panel-card">
+        <div class="panel-section-title">Previous Orders</div>
+        <div id="ordersList"></div>
+      </section>
+
+      <section class="panel-card">
+        <div class="panel-section-title">Shipping Option *</div>
+        <div class="shipping-options">
+          <button type="button" class="shipping-option" onclick="selectShipping('luzon')">
+            <strong>Luzon (J&amp;T)</strong> <span id="shipLuzon">₱0</span>
+          </button>
+          <button type="button" class="shipping-option" onclick="selectShipping('visayas')">
+            <strong>Visayas (J&amp;T)</strong> <span id="shipVisayas">₱0</span>
+          </button>
+          <button type="button" class="shipping-option" onclick="selectShipping('mindanao')">
+            <strong>Mindanao (J&amp;T)</strong> <span id="shipMindanao">₱0</span>
+          </button>
+          <button type="button" class="shipping-option" onclick="selectShipping('other')">
+            <strong>Lalamove / Shopee Checkout</strong> <span>₱0</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="panel-card">
+        <div class="panel-section-title">Delivery Methods</div>
+        <div class="delivery-methods">
+          <div class="delivery-method-card">
+            <div class="delivery-method-title">J&amp;T Express</div>
+            <div class="delivery-method-sub">Standard courier delivery</div>
+          </div>
+          <div class="delivery-method-card">
+            <div class="delivery-method-title">Lalamove</div>
+            <div class="delivery-method-sub">On-demand local delivery</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-card">
+        <div class="total-box">
+          <div class="total-label">
+            <div>Grand Total</div>
+            <div class="total-sub">Includes all orders</div>
+          </div>
+          <div class="total-amount" id="totalAmount">0</div>
+        </div>
+      </section>
+
+      <button class="submit-btn submit-btn--secondary" onclick="addCurrentToOrders()">+ Add Current to Orders</button>
+      <button class="submit-btn submit-btn--secondary submit-btn--warm" onclick="startNewOrder()">↺ Start New Order</button>
+
+      <section class="panel-card">
+        <div class="panel-section-title">Payment</div>
+        <div class="field-group">
+          <label class="field-label">Payment Screenshot</label>
+          <input class="field-input" id="custImage" type="file" accept="image/*" onchange="handlePaymentScreenshot(event)">
+          <div class="image-preview" id="imagePreview" style="display:none;">
+            <img id="previewImg" src="" alt="Payment screenshot preview">
+            <button type="button" class="small-btn" onclick="removePaymentScreenshot()">Remove</button>
+          </div>
+        </div>
+        <div class="payment-section">
+          <div class="payment-header"><span>💳</span> Payment Options</div>
+          <div class="payment-send">Send payment to</div>
+          <div class="payment-send-row">
+            <div>
+              <div class="pay-name">tinapa vdr</div>
+              <div class="pay-detail">K** L** L.</div>
+              <div class="pay-detail">Mobile: 0905 855 ••••</div>
+            </div>
+            <div class="payment-send-amount" id="paymentSendAmount">₱0</div>
+          </div>
+          <div class="payment-tabs">
+            <button class="pay-tab active" onclick="showPayTab(this, 'gcash')">GCash</button>
+          </div>
+          <div class="pay-content active" id="pay-gcash">
+            <div class="pay-info">
+              <div class="pay-logo">📱 <strong>GCash</strong></div>
+              <div class="pay-name">tinapa vdr</div>
+              <div class="pay-detail">K** L** L.</div>
+              <div class="pay-detail">Mobile: 0905 855 ••••</div>
+            </div>
+            <div class="qr-wrap"><img src="payment-gcash.png" alt="GCash QR" class="qr-img qr-gcash"></div>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top: 10px;">📸 Send your payment screenshot to confirm your order!</div>
+      </section>
+
+      <button class="submit-btn" id="submitBtn" onclick="submitOrder()" disabled>Submit My Order</button>
     </div>
-
   </div>
+
+  <button type="button" class="mobile-checkout-bar" id="mobileCheckoutBar" onclick="scrollToCheckout()">
+    <span class="mobile-checkout-count" id="mobileCheckoutCount">0</span>
+    <span class="mobile-checkout-text">View Order &amp; Checkout</span>
+    <span class="mobile-checkout-total" id="mobileCheckoutTotal">₱0</span>
+  </button>
 
   <div class="success-overlay" id="successOverlay">
     <div class="success-box">

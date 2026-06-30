@@ -14,6 +14,8 @@ let shippingConfig = {
 };
 let selectedRegion = ""; 
 let selectedShippingCost = 0;
+let activeCategory = "all";
+let catalogCategories = [];
 
 function getTotalItemCount() {
   let totalPcs = 0;
@@ -78,6 +80,107 @@ function calculateDynamicShipping() {
   }
 }
 
+function scrollCatalogToTop() {
+  const catalog = document.getElementById('productCatalog');
+  if (catalog) {
+    const shell = document.querySelector('.top-shell');
+    const shellHeight = shell ? shell.getBoundingClientRect().height : 0;
+    const top = catalog.getBoundingClientRect().top + window.pageYOffset - shellHeight - 16;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+}
+
+function scrollToCheckout() {
+  const checkout = document.querySelector('.order-panel');
+  if (checkout) {
+    checkout.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function updateCheckoutAffordances(grandTotal) {
+  const count = getTotalItemCount();
+  const headerSummary = document.getElementById('headerSummary');
+  const mobileBar = document.getElementById('mobileCheckoutBar');
+  const mobileCount = document.getElementById('mobileCheckoutCount');
+  const mobileTotal = document.getElementById('mobileCheckoutTotal');
+  const paymentSendAmount = document.getElementById('paymentSendAmount');
+
+  if (headerSummary) {
+    headerSummary.innerHTML = `<span class="header-summary-icon">🛒</span><span>${count}</span>`;
+  }
+
+  if (mobileBar && mobileCount && mobileTotal) {
+    const hasItems = grandTotal > 0;
+    mobileBar.classList.toggle('show', hasItems);
+    document.body.classList.toggle('has-mobile-checkout', hasItems);
+    mobileCount.textContent = count;
+    mobileTotal.textContent = `₱${grandTotal.toLocaleString()}`;
+  }
+
+  if (paymentSendAmount) {
+    paymentSendAmount.textContent = `₱${grandTotal.toLocaleString()}`;
+  }
+}
+
+function applyCatalogFilters() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  const groups = document.querySelectorAll('#productCatalog .product-group');
+
+  groups.forEach(group => {
+    const groupCategory = (group.dataset.category || '').toLowerCase();
+    const cards = group.querySelectorAll('.product-card');
+    let hasVisible = false;
+
+    cards.forEach(card => {
+      const matchesCategory = activeCategory === 'all' || groupCategory === activeCategory;
+      const matchesSearch = !query || card.dataset.name.toLowerCase().includes(query);
+      const visible = matchesCategory && matchesSearch;
+      card.style.display = visible ? '' : 'none';
+      if (visible) hasVisible = true;
+    });
+
+    group.style.display = hasVisible ? '' : 'none';
+  });
+}
+
+function renderCategoryPills() {
+  const strip = document.getElementById('categoryStrip');
+  if (!strip) return;
+
+  const pills = [
+    { label: 'All Products', value: 'all' },
+    ...catalogCategories.map(label => ({
+      label,
+      value: label.toLowerCase()
+    }))
+  ];
+
+  strip.innerHTML = pills.map((pill, index) => `
+    <button type="button" class="category-pill${index === 0 ? ' active' : ''}" data-category="${pill.value}">${pill.label}</button>
+  `).join('');
+
+  strip.querySelectorAll('.category-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCategory = btn.dataset.category || 'all';
+      strip.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      applyCatalogFilters();
+      scrollCatalogToTop();
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const search = document.getElementById('searchInput');
+  if (search) {
+    search.addEventListener('focus', () => {
+      if (window.innerWidth < 768) {
+        scrollCatalogToTop();
+      }
+    });
+  }
+});
+
 function selectShipping(region) {
   if (getTotalItemCount() === 0) {
     return; 
@@ -137,19 +240,28 @@ function renderOrder() {
   if (!keys.length) {
     html = `
       <div class="empty-state" id="emptyState">
-        <span>🛒</span>
-        Tap products to add them!
+        <div class="empty-state-icon">🛒</div>
+        No items yet
+        <small>Browse products and tap Add</small>
       </div>`;
   } else {
     keys.forEach(k => {
       const item = cart[k];
       const sub  = item.price * item.qty;
+      const initials = item.name.split(' ').map(x => x[0]).join('').slice(0, 2).toUpperCase();
       currentTotal += sub;
       html += `
         <div class="order-item current-item">
+          <div class="item-avatar">${initials}</div>
           <div class="item-info">
-            <div class="item-name">${item.name}</div>
-            <div class="item-qty">×${item.qty} @ ₱${item.price.toLocaleString()}</div>
+            <div class="item-row-top">
+              <div class="item-name">${item.name}</div>
+            </div>
+            <div class="item-subtitle">${item.name}</div>
+            <div class="item-qty">x${item.qty} @ ₱${item.price.toLocaleString()}</div>
+            <div class="item-actions">
+              <button type="button" class="item-remove" onclick="toggleProduct(document.querySelector('.product-card[data-name=&quot;${item.name.replace(/"/g, '&quot;')}&quot;]'))">Remove</button>
+            </div>
           </div>
           <div class="item-price">₱${sub.toLocaleString()}</div>
         </div>`;
@@ -162,7 +274,7 @@ function renderOrder() {
   if (orders.length) {
     orders.forEach((order, index) => {
       ordersHtml += `
-        <div class="order-item" style="background: rgba(16, 185, 129, 0.1); border-left: 3px solid #10B981; padding: 8px 12px; margin-bottom: 6px; border-radius: 8px;">
+        <div class="order-item order-item--previous">
           <div class="item-info">
             <div class="item-name">Order #${index + 1}</div>
           </div>
@@ -170,7 +282,7 @@ function renderOrder() {
         </div>`;
     });
   } else {
-    ordersHtml = '<div style="opacity: 0.5; font-size: 12px; text-align: center; padding: 20px; color: var(--muted);">No previous orders</div>';
+    ordersHtml = '<div style="opacity: 0.6; font-size: 12px; text-align: center; padding: 18px 10px; color: var(--muted);">No previous orders</div>';
   }
   ordersList.innerHTML = ordersHtml;
 
@@ -182,6 +294,7 @@ function renderOrder() {
 function updateTotals(currentTotal, grandTotal) {
   document.getElementById('totalAmount').textContent = grandTotal.toLocaleString();
   document.getElementById('submitBtn').disabled = grandTotal === 0 || !paymentImageData;
+  updateCheckoutAffordances(grandTotal);
 }
 
 function calculateGrandTotal() {
@@ -377,10 +490,14 @@ async function loadProductsFromJSON() {
         return; 
       }
 
+      if (group.category) {
+        catalogCategories.push(group.category);
+      }
+
       let pillHTML = group.pill ? `<span class="cat-pill">${group.pill}</span>` : "";
       
       catalogHTML += `
-        <div class="product-group" data-group>
+        <div class="product-group" data-group data-category="${group.category}">
           <div class="cat-header">
             <span class="cat-icon">${group.icon}</span>
             <span class="cat-title">${group.category}</span>
@@ -395,7 +512,9 @@ async function loadProductsFromJSON() {
             <div class="card-check">✓</div>
             <span class="card-emoji">${item.emoji}</span>
             <div class="card-name">${item.name}</div>
+            <div class="card-fullname">${item.fullName}</div>
             <div class="card-price">${item.price.toLocaleString()}</div>
+            <div class="add-pill">+ Add</div>
             <div class="qty-control">
               <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
               <span class="qty-num">1</span>
@@ -413,8 +532,10 @@ async function loadProductsFromJSON() {
     });
 
     catalogContainer.innerHTML = catalogHTML;
+    renderCategoryPills();
     
     calculateDynamicShipping();
+    applyCatalogFilters();
   } catch (error) {
     console.error("Hala, nag-error ang configuration rendering mapping:", error);
   }
@@ -425,20 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProductsFromJSON();
 
   document.getElementById('searchInput').addEventListener('input', function () {
-    const q = this.value.toLowerCase();
-
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.style.display = card.dataset.name.toLowerCase().includes(q) ? '' : 'none';
-    });
-
-    document.querySelectorAll('[data-group]').forEach(group => {
-      const hasVisible = [...group.querySelectorAll('.product-card')]
-        .some(c => c.style.display !== 'none');
-      group.style.display = hasVisible ? '' : 'none';
-    });
-
-    document.querySelectorAll('.cat-divider')
-      .forEach(d => { d.style.display = q ? 'none' : ''; });
+    applyCatalogFilters();
   });
 });
 
