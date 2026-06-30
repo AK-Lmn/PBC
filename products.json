@@ -108,7 +108,7 @@
       { "id": "nad1000_vial", "name": "NAD+ 1000mg", "fullName": "NAD+ 1000mg — Vials Only", "price": 1600, "emoji": "⚡" },
       { "id": "pt141_vial", "name": "PT-141 10mg", "fullName": "PT-141 10mg — Vials Only", "price": 1200, "emoji": "🧬" },
       { "id": "lcarnitine_600_vial", "name": "L-CARNITINE 600MG", "fullName": "L-CARNITINE 600MG — Vials Only", "price": 1000, "emoji": "💪" },
-      { "id": "botulax_vial", "name": "BOTULAX 100u", "fullName": "BOTULAX 100u — Vials Only", "price": 15000, "emoji": "💉" },
+      { "id": "botulax_vial", "name": "BOTULAX 100u", "fullName": "BOTULAX 100u — Vials Only", "price": 1500, "emoji": "💉" },
       { "id": "ghkcu_topical_vial", "name": "GHKCU TOPICAL 1g", "fullName": "GHKCU TOPICAL 1g — Vials Only", "price": 700, "emoji": "🧴" },
       { "id": "ahkcu_topical_vial", "name": "AHKCU TOPICAL 1g", "fullName": "AHKCU TOPICAL 1g — Vials Only", "price": 900, "emoji": "🧴" },
       { "id": "glow70_vial", "name": "GLOW70 MG", "fullName": "GLOW70 MG — Vials Only", "price": 1850, "emoji": "🌟" },
