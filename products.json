@@ -186,15 +186,15 @@
       { "id": "reseller_bac3ml", "name": "3 ML Bacwater", "fullName": "Reseller Box - 3 ML Bacwater", "price": 750, "emoji": "💧" },
       { "id": "reseller_bac5ml", "name": "5 ML Bacwater", "fullName": "Reseller Box - 5 ML Bacwater", "price": 950, "emoji": "💧" },
       { "id": "reseller_bac10ml", "name": "10 ML Bacwater", "fullName": "Reseller Box - 10 ML Bacwater", "price": 1100, "emoji": "💧" },
-      { "id": "reseller_tir10", "name": "Tirzepatide 10mg", "fullName": "Reseller Box - Tirzepatide 10mg", "price": 6500, "emoji": "📦" },
-      { "id": "reseller_tir15", "name": "Tirzepatide 15mg", "fullName": "Reseller Box - Tirzepatide 15mg", "price": 7500, "emoji": "📦" },
-      { "id": "reseller_tir30", "name": "Tirzepatide 30mg", "fullName": "Reseller Box - Tirzepatide 30mg", "price": 9000, "emoji": "📦" },
-      { "id": "reseller_tir60", "name": "Tirzepatide 60mg", "fullName": "Reseller Box - Tirzepatide 60mg", "price": 14000, "emoji": "📦" },
-      { "id": "reseller_cu50", "name": "GHKCU 50", "fullName": "Reseller Box - GHKCU 50", "price": 3500, "emoji": "📦" },
+      { "id": "reseller_tir10", "name": "Tirzepatide 10mg", "fullName": "Reseller Box - Tirzepatide 10mg", "price": 5000, "emoji": "📦" },
+      { "id": "reseller_tir15", "name": "Tirzepatide 15mg", "fullName": "Reseller Box - Tirzepatide 15mg", "price": 6000, "emoji": "📦" },
+      { "id": "reseller_tir30", "name": "Tirzepatide 30mg", "fullName": "Reseller Box - Tirzepatide 30mg", "price": 7500, "emoji": "📦" },
+      { "id": "reseller_tir60", "name": "Tirzepatide 60mg", "fullName": "Reseller Box - Tirzepatide 60mg", "price": 11000, "emoji": "📦" },
+      { "id": "reseller_cu50", "name": "GHKCU 50", "fullName": "Reseller Box - GHKCU 50", "price": 3200, "emoji": "📦" },
       { "id": "reseller_cu100", "name": "GHKCU 100", "fullName": "Reseller Box - GHKCU 100", "price": 4500, "emoji": "📦" },
-      { "id": "reseller_lemon", "name": "Fuan Glutathione", "fullName": "Reseller Box - Fuan Glutathione", "price": 7000, "emoji": "🍋" },
-      { "id": "reseller_lipoc", "name": "Korean Pink Gluta", "fullName": "Reseller Box - Korean Pink Gluta", "price": 4500, "emoji": "🌟" },
-      { "id": "reseller_mega", "name": "Mega Reseller Pack", "fullName": "Mega Reseller Pack (5) TIR10 (5) TIR15 (5) TIR20 (5) TIR30", "price": 20000, "emoji": "🏆" }
+      { "id": "reseller_lemon", "name": "Fuan Glutathione", "fullName": "Reseller Box - Fuan Glutathione", "price": 6500, "emoji": "🍋" },
+      { "id": "reseller_lipoc", "name": "Korean Pink Gluta", "fullName": "Reseller Box - Korean Pink Gluta", "price": 4000, "emoji": "🌟" },
+      { "id": "reseller_mega", "name": "Mega Reseller Pack", "fullName": "Mega Reseller Pack (10) TIR15 (10) TIR30 (20) BACWATER", "price": 15000, "emoji": "🏆" }
     ]
   },
   {
