@@ -50,6 +50,8 @@ header{
 .top-shell > .category-strip{padding:0 24px 10px;background:transparent;border-bottom:none}
 .brand-wrap{display:flex;align-items:center;gap:12px;min-width:0;max-width:100%}
 .brand-mark{width:36px;height:36px;border-radius:14px;background:linear-gradient(135deg,#ef8eb0,#d86ea0);display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-strong);flex:0 0 auto}
+.brand-mark--logo{width:auto;height:auto;padding:0;background:transparent;border-radius:0;box-shadow:none;display:block;line-height:0}
+.brand-mark--logo img{display:block;width:110px;height:auto;max-height:46px}
 .brand{font-family:var(--font-display);font-size:1.35rem;line-height:1;color:var(--ink);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .brand-sub{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .search-wrap{position:relative;width:100%;max-width:680px;min-width:0;overflow:hidden;border-radius:999px;border:1px solid var(--border);background:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.75)}

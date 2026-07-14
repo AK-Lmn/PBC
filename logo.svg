@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">PRS HUB logo</title>
+  <desc id="desc">Pink and burgundy logo for PRS HUB</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9d6e3"/>
+      <stop offset="55%" stop-color="#f2a6bf"/>
+      <stop offset="100%" stop-color="#d96893"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8d294f"/>
+      <stop offset="100%" stop-color="#c65b84"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="42" fill="#fff7fb"/>
+  <g transform="translate(56 38)">
+    <circle cx="142" cy="142" r="118" fill="url(#bg)" opacity="0.95"/>
+    <circle cx="142" cy="142" r="108" fill="none" stroke="url(#ring)" stroke-width="10" opacity="0.92"/>
+    <circle cx="142" cy="142" r="88" fill="none" stroke="#ffffff" stroke-opacity="0.32" stroke-width="8"/>
+    <text x="142" y="160" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="700" fill="#8d294f" letter-spacing="6">PRS</text>
+    <path d="M90 94c16-28 44-44 74-44 43 0 78 28 86 67" fill="none" stroke="#ffffff" stroke-opacity="0.36" stroke-width="8" stroke-linecap="round"/>
+    <path d="M92 194c20 28 49 44 80 44 43 0 78-24 91-61" fill="none" stroke="#ffffff" stroke-opacity="0.26" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(350 74)">
+    <text x="0" y="90" font-family="Georgia, 'Times New Roman', serif" font-size="132" font-weight="700" fill="#8d294f" letter-spacing="12">HUB</text>
+    <text x="6" y="182" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#b34f77" letter-spacing="6">PEPTIDE RESELLER HUB</text>
+  </g>
+</svg>
