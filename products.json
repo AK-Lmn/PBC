@@ -4,15 +4,13 @@
     "icon": "💉",
     "pill": "w/ supplies",
     "items": [
-      { "id": "tir10_set", "name": "TIR 10", "fullName": "TIR 10 — Complete Set", "price": 999, "emoji": "💊" },
-      { "id": "tir15_set", "name": "TIR 15", "fullName": "TIR 15 — Complete Set", "price": 1100, "emoji": "💊" },
-      { "id": "tir20_set", "name": "TIR 20", "fullName": "TIR 20 — Complete Set", "price": 1200, "emoji": "💊" },
-      { "id": "tir30_set", "name": "TIR 30", "fullName": "TIR 30 — Complete Set", "price": 1299, "emoji": "💊" },
-      { "id": "tir40_set", "name": "TIR 40", "fullName": "TIR 40 — Complete Set", "price": 1599, "emoji": "💊" },
-      { "id": "tir50_set", "name": "TIR 50", "fullName": "TIR 50 — Complete Set", "price": 1699, "emoji": "💊" },
-      { "id": "tir60_set", "name": "TIR 60", "fullName": "TIR 60 — Complete Set", "price": 1899, "emoji": "💊" },
-      { "id": "tir80_set", "name": "TIR 80", "fullName": "TIR 80 — Complete Set", "price": 2399, "emoji": "💊" },
-      { "id": "tir100_set", "name": "TIR 100", "fullName": "TIR 100 — Complete Set", "price": 2799, "emoji": "💊" }
+      { "id": "tir10_set", "name": "TIR 10", "fullName": "TIR 10 — Complete Set", "price": 1100, "emoji": "💊" },
+      { "id": "tir15_set", "name": "TIR 15", "fullName": "TIR 15 — Complete Set", "price": 1300, "emoji": "💊" },
+      { "id": "tir20_set", "name": "TIR 20", "fullName": "TIR 20 — Complete Set", "price": 1400, "emoji": "💊" },
+      { "id": "tir30_set", "name": "TIR 30", "fullName": "TIR 30 — Complete Set", "price": 1600, "emoji": "💊" },
+      { "id": "tir40_set", "name": "TIR 40", "fullName": "TIR 40 — Complete Set", "price": 1800, "emoji": "💊" },
+      { "id": "tir50_set", "name": "TIR 50", "fullName": "TIR 50 — Complete Set", "price": 1900, "emoji": "💊" },
+      { "id": "tir60_set", "name": "TIR 60", "fullName": "TIR 60 — Complete Set", "price": 2100, "emoji": "💊" }
     ]
   }, 
   {
@@ -20,15 +18,13 @@
     "icon": "🧪",
     "pill": "(VIALS ONLY - NO BACWATER INCLUDED)",
     "items": [
-      { "id": "tir10_vial", "name": "Tirzepatide 10mg", "fullName": "Tirzepatide 10mg — Vials Only", "price": 600, "emoji": "🔬" },
-      { "id": "tir15_vial", "name": "Tirzepatide 15mg", "fullName": "Tirzepatide 15mg — Vials Only", "price": 700, "emoji": "🔬" },
-      { "id": "tir20_vial", "name": "Tirzepatide 20mg", "fullName": "Tirzepatide 20mg — Vials Only", "price": 800, "emoji": "🔬" },
-      { "id": "tir30_vial", "name": "Tirzepatide 30mg", "fullName": "Tirzepatide 30mg — Vials Only", "price": 900, "emoji": "🔬" },
-      { "id": "tir40_vial", "name": "Tirzepatide 40mg", "fullName": "Tirzepatide 40mg — Vials Only", "price": 1100, "emoji": "🔬" },
-      { "id": "tir50_vial", "name": "Tirzepatide 50mg", "fullName": "Tirzepatide 50mg — Vials Only", "price": 1200, "emoji": "🔬" },
-      { "id": "tir60_vial", "name": "Tirzepatide 60mg", "fullName": "Tirzepatide 60mg — Vials Only", "price": 1400, "emoji": "🔬" },
-      { "id": "tir80_vial", "name": "Tirzepatide 80mg", "fullName": "Tirzepatide 80mg — Vials Only", "price": 1699, "emoji": "🔬" },
-      { "id": "tir100_vial", "name": "Tirzepatide 100mg", "fullName": "Tirzepatide 100mg — Vials Only", "price": 1999, "emoji": "🔬" }
+      { "id": "tir10_vial", "name": "Tirzepatide 10mg", "fullName": "Tirzepatide 10mg — Vials Only", "price": 850, "emoji": "🔬" },
+      { "id": "tir15_vial", "name": "Tirzepatide 15mg", "fullName": "Tirzepatide 15mg — Vials Only", "price": 950, "emoji": "🔬" },
+      { "id": "tir20_vial", "name": "Tirzepatide 20mg", "fullName": "Tirzepatide 20mg — Vials Only", "price": 1000, "emoji": "🔬" },
+      { "id": "tir30_vial", "name": "Tirzepatide 30mg", "fullName": "Tirzepatide 30mg — Vials Only", "price": 1100, "emoji": "🔬" },
+      { "id": "tir40_vial", "name": "Tirzepatide 40mg", "fullName": "Tirzepatide 40mg — Vials Only", "price": 1300, "emoji": "🔬" },
+      { "id": "tir50_vial", "name": "Tirzepatide 50mg", "fullName": "Tirzepatide 50mg — Vials Only", "price": 1400, "emoji": "🔬" },
+      { "id": "tir60_vial", "name": "Tirzepatide 60mg", "fullName": "Tirzepatide 60mg — Vials Only", "price": 1550, "emoji": "🔬" }
     ]
   },
   {
@@ -36,10 +32,21 @@
     "icon": "✨",
     "pill": "(VIALS ONLY - NO BACWATER INCLUDED)",
     "items": [
-      { "id": "reta10", "name": "RETA 10", "fullName": "RETA 10", "price": 999, "emoji": "💫" },
-      { "id": "reta15", "name": "RETA 15", "fullName": "RETA 15", "price": 1300, "emoji": "💫" },
-      { "id": "reta20", "name": "RETA 20", "fullName": "RETA 20", "price": 1450, "emoji": "💫" },
-      { "id": "reta30", "name": "RETA 30", "fullName": "RETA 30", "price": 2100, "emoji": "💫" }
+      { "id": "reta10", "name": "RETA 10", "fullName": "RETA 10", "price": 1100, "emoji": "💫" },
+      { "id": "reta15", "name": "RETA 15", "fullName": "RETA 15", "price": 1400, "emoji": "💫" },
+      { "id": "reta20", "name": "RETA 20", "fullName": "RETA 20", "price": 1600, "emoji": "💫" },
+      { "id": "reta30", "name": "RETA 30", "fullName": "RETA 30", "price": 1930, "emoji": "💫" }
+    ]
+  },
+  {
+    "category": "Retatrutide Complete Set",
+    "icon": "✨",
+    "pill": "w/ supplies",
+    "items": [
+      { "id": "reta10_set", "name": "RETA 10", "fullName": "RETA 10 — Complete Set", "price": 1300, "emoji": "💫" },
+      { "id": "reta15_set", "name": "RETA 15", "fullName": "RETA 15 — Complete Set", "price": 1600, "emoji": "💫" },
+      { "id": "reta20_set", "name": "RETA 20", "fullName": "RETA 20 — Complete Set", "price": 1800, "emoji": "💫" },
+      { "id": "reta30_set", "name": "RETA 30", "fullName": "RETA 30 — Complete Set", "price": 2130, "emoji": "💫" }
     ]
   },
   {    "category": "Other Peps Complete Set",
