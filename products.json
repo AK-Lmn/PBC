@@ -145,6 +145,7 @@
       { "id": "ggh_vial", "name": "GGH(Gluta,GHK,NAD blend) vial only", "fullName": "GGH(Gluta,GHK,NAD blend) vial only", "price": 1600, "emoji": "⚡" },
       { "id": "cagri_tirze", "name": "Cagri+Tirze", "fullName": "Cagri+Tirze", "price": 1999, "emoji": "💉" },
       { "id": "cagri_semaglitude", "name": "Cagri+Semaglitude", "fullName": "Cagri+Semaglitude", "price": 1999, "emoji": "💉" },
+      { "id": "mazdutide", "name": "MAZDUTIDE", "fullName": "MAZDUTIDE", "price": 1999, "emoji": "🧬" },
       { "id": "glow70_new", "name": "GLOW70", "fullName": "GLOW70", "price": 1700, "emoji": "🌟" },
       { "id": "thymosin_alpha", "name": "Thymosin Alpha", "fullName": "Thymosin Alpha", "price": 1500, "emoji": "🧬" }
     ]
