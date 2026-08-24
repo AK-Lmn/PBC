@@ -218,12 +218,12 @@
       { "id": "bac5ml", "name": "5 ml Bacwater", "fullName": "5 ml Bacwater", "price": 80, "emoji": "💧" },
       { "id": "bac10ml", "name": "10 ml Bacwater", "fullName": "10 ml Bacwater", "price": 100, "emoji": "💧" },
       { "id": "pharmabac10ml", "name": "10 ml Pharma Bac", "fullName": "10 ml Pharma Bac", "price": 120, "emoji": "💧" },
-      { "id": "alcohol_pads", "name": "Alcohol Pads", "fullName": "Alcohol Pads", "price": 80, "emoji": "🧻" },
-      { "id": "insulin_syringe", "name": "Insulin Syringe", "fullName": "Insulin Syringe", "price": 15, "emoji": "🩸" },
+      { "id": "alcohol_pads", "name": "Alcohol Pads (Pink, Purple) 100 pcs", "fullName": "Alcohol Pads (Pink, Purple) 100 pcs", "price": 80, "emoji": "🧻" },
+      { "id": "alcohol_pads_7", "name": "Alcohol Pads", "fullName": "Alcohol Pads", "price": 7, "emoji": "🧻" },
+      { "id": "insulin_syringe", "name": "Colored Syringe (Pink, Teal, Purple)", "fullName": "Colored Syringe (Pink, Teal, Purple)", "price": 15, "emoji": "🩸" },
       { "id": "recon_syringe", "name": "Recon Syringe", "fullName": "Recon Syringe", "price": 12, "emoji": "💉" },
       { "id": "peppy_pen", "name": "Reusable Peppy Pen Complete Set", "fullName": "Reusable Peppy Pen Complete Set", "price": 1000, "emoji": "🖊️" },
-      { "id": "vial_case", "name": "Cute Single Vial Case", "fullName": "Cute Single Vial Case", "price": 70, "emoji": "🎀" },
-      { "id": "vial_case_3", "name": "Insulin Syringe Purple", "fullName": "Insulin Syringe Purple", "price": 7, "emoji": "🎀" },
+      { "id": "vial_case_duo", "name": "Vial Case Duo", "fullName": "Vial Case Duo", "price": 70, "emoji": "🎀" },
       { "id": "vial_case_5", "name": "Vial Cap", "fullName": "Vial Cap", "price": 12, "emoji": "🎀" }
     ]
   },
