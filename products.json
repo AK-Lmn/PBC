@@ -83,15 +83,14 @@
       { "id": "ss31_set", "name": "SS-31 10mg", "fullName": "SS-31 10mg — Complete Set", "price": 1300, "emoji": "⭐" },
       { "id": "slupp332_set", "name": "SLU-PP-332", "fullName": "SLU-PP-332 — Complete Set", "price": 1300, "emoji": "🧬" },
       { "id": "fatblaster_set", "name": "Fat Blaster", "fullName": "Fat Blaster — Complete Set", "price": 1400, "emoji": "🔥" },
-      { "id": "lipoc_set", "name": "Lipo C with B12", "fullName": "Lipo C with B12 — Complete Set", "price": 1200, "emoji": "🌟" },
-      { "id": "lcarnitine_set", "name": "L-Carnitine", "fullName": "L-Carnitine — Complete Set", "price": 1100, "emoji": "💪" },
-      { "id": "bpc157_set", "name": "BPC-157 10mg", "fullName": "BPC-157 10mg — Complete Set", "price": 1250, "emoji": "🧬" },
+      { "id": "lipoc_set", "name": "Lipo C with B12", "fullName": "Lipo C with B12 — Complete Set", "price": 1000, "emoji": "🌟" },
+      { "id": "lcarnitine_set", "name": "L-Carnitine", "fullName": "L-Carnitine — Complete Set", "price": 1000, "emoji": "💪" },
+      { "id": "bpc157_set", "name": "BPC-157 10mg", "fullName": "BPC-157 10mg — Complete Set", "price": 1150, "emoji": "🧬" },
       { "id": "pinkgluta_set", "name": "Korean Pink Gluta (Snow White)", "fullName": "Korean Pink Gluta (Snow White) — Complete Set", "price": 1100, "emoji": "✨" },
-      { "id": "fuangluta_set", "name": "Fuan Gluta 1500mg", "fullName": "Fuan Gluta 1500mg — Complete Set", "price": 1350, "emoji": "✨" },
-      { "id": "amino50_set", "name": "5 Amino 50mg", "fullName": "5 Amino 50mg — Complete Set", "price": 1500, "emoji": "🧬" },
-      { "id": "amino5_set", "name": "5 Amino 5mg", "fullName": "5 Amino 5mg — Complete Set", "price": 1250, "emoji": "🧬" },
+      { "id": "fuangluta_set", "name": "Fuan Gluta 1500mg", "fullName": "Fuan Gluta 1500mg — Complete Set", "price": 1200, "emoji": "✨" },
+      { "id": "amino50_set", "name": "5 Amino 50mg", "fullName": "5 Amino 50mg — Complete Set", "price": 1300, "emoji": "🧬" },
       { "id": "ghkcu50_set", "name": "GHKCU 50 MG Set", "fullName": "GHKCU 50 MG Set — Complete Set", "price": 1100, "emoji": "💎" },
-      { "id": "ghkcu100_set", "name": "GHKCU 100 MG Set", "fullName": "GHKCU 100 MG Set — Complete Set", "price": 1200, "emoji": "💎" }
+      { "id": "ghkcu100_set", "name": "GHKCU 100 MG Set", "fullName": "GHKCU 100 MG Set — Complete Set", "price": 1100, "emoji": "💎" }
     ]
   },
   {
@@ -137,7 +136,6 @@
       { "id": "pinkgluta_vial", "name": "Korean Pink Gluta (Snow White)", "fullName": "Korean Pink Gluta (Snow White) — Vials Only", "price": 800, "emoji": "✨" },
       { "id": "fuangluta_vial", "name": "Fuan Gluta 1500mg", "fullName": "Fuan Gluta 1500mg — Vials Only", "price": 900, "emoji": "✨" },
       { "id": "amino50_vial", "name": "5 Amino 50mg", "fullName": "5 Amino 50mg — Vials Only", "price": 1350, "emoji": "🧬" },
-      { "id": "amino5_vial", "name": "5 Amino 5mg", "fullName": "5 Amino 5mg — Vials Only", "price": 1000, "emoji": "🧬" },
       { "id": "ghkcu50_vial", "name": "GHKCU 50 MG Vials Only", "fullName": "GHKCU 50 MG Vials Only", "price": 600, "emoji": "💎" },
       { "id": "ghkcu100_vial", "name": "GHKCU 100 MG Vials Only", "fullName": "GHKCU 100 MG Vials Only", "price": 700, "emoji": "💎" }
     ]
