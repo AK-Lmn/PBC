@@ -192,23 +192,23 @@
     "icon": "📦",
     "pill": "(VIALS WITH BACWATER)",
     "items": [
-      { "id": "reseller_bac3ml", "name": "3 ML Bacwater", "fullName": "Reseller Box - 3 ML Bacwater", "price": 600, "emoji": "💧" },
-      { "id": "reseller_bac5ml", "name": "5 ML Bacwater", "fullName": "Reseller Box - 5 ML Bacwater", "price": 800, "emoji": "💧" },
-      { "id": "reseller_bac10ml", "name": "10 ML Bacwater", "fullName": "Reseller Box - 10 ML Bacwater", "price": 1000, "emoji": "💧" },
-      { "id": "reseller_tir10", "name": "Tirzepatide 10mg", "fullName": "Reseller Box - Tirzepatide 10mg with bac3", "price": 5000, "emoji": "📦" },
+      { "id": "reseller_bac3ml", "name": "3 ML Pink Bacwater", "fullName": "10 vials - 3 ML Pink Bacwater", "price": 600, "emoji": "💧" },
+      { "id": "reseller_bac5ml", "name": "5 ML Bacwater", "fullName": "10 vials - 5ml bacwater", "price": 800, "emoji": "💧" },
+      { "id": "reseller_bac10ml", "name": "10 ML Bacwater", "fullName": "10 vials - 10ml bacwater", "price": 1000, "emoji": "💧" },
+      { "id": "reseller_tir10", "name": "10 Vials - Tirzepatide 10mg with bac3", "fullName": "10 Vials - Tirzepatide 10mg with bac3", "price": 5000, "emoji": "📦" },
       { "id": "reseller_tir15", "name": "Tirzepatide 15mg (Aurora Manuf)", "fullName": "10vials-Tir15 Aurora with bac3", "price": 6300, "emoji": "📦" },
       { "id": "reseller_tir30", "name": "Tirzepatide 30mg (Aurora Manuf)", "fullName": "10vials-Tir30 Aurora with bac3", "price": 7800, "emoji": "📦" },
-      { "id": "reseller_tir60", "name": "Tirzepatide 60mg", "fullName": "Reseller Box - Tirzepatide 60mg with bac10", "price": 10000, "emoji": "📦" },
-      { "id": "reseller_cu50", "name": "GHKCU 50", "fullName": "Reseller Box - GHKCU 50 with bac5", "price": 3000, "emoji": "📦" },
-      { "id": "reseller_cu100", "name": "GHKCU 100", "fullName": "Reseller Box - GHKCU 100 with bac10", "price": 4300, "emoji": "📦" },
-      { "id": "reseller_lemon", "name": "Fuan Glutathione", "fullName": "Reseller Box - Fuan Glutathione with pharmabac", "price": 5500, "emoji": "🍋" },
+      { "id": "reseller_tir60", "name": "Tirzepatide 60mg", "fullName": "10 vials - tirzepatide 60mg with bac10", "price": 10000, "emoji": "📦" },
+      { "id": "reseller_cu50", "name": "GHKCU 50", "fullName": "10 vials - GHK 50 with bac5", "price": 3000, "emoji": "📦" },
+      { "id": "reseller_cu100", "name": "GHKCU 100", "fullName": "10 vials GHK100 with bac10", "price": 4300, "emoji": "📦" },
+      { "id": "reseller_lemon", "name": "Fuan Glutathione", "fullName": "10 vials - Fuan Gluta with pharma bac", "price": 5500, "emoji": "🍋" },
       { "id": "reseller_lipoc", "name": "Korean Pink Gluta", "fullName": "Reseller Box - Korean Pink Gluta with pharmabac", "price": 4300, "emoji": "🌟" },
       { "id": "reseller_mega", "name": "Mega Reseller Pack", "fullName": "Mega Reseller Pack (10) TIR15 SET (10) TIR 30 SET", "price": 19500, "emoji": "🏆" }, 
-        { "id": "reseller_mega2", "name": "Reseller starter pack ", "fullName": "Reseller starter pack (5) TIR15 SET (5) TIR 30 SET", "price": 10000, "emoji": "🏆" },
-        { "id": "reseller_mega3", "name": "Tirzepatide 30mg", "fullName": "Reseller Box - Tirzepatide 30mg with bac5", "price": 7800, "emoji": "🏆" },
-        { "id": "reseller_mega4", "name": "LIPO C B12/Lcarnitine", "fullName": "Reseller Box - LIPO C B12/Lcarnitine", "price": 6300, "emoji": "🏆" }
-      ]
-  }, 
+      { "id": "reseller_mega2", "name": "Reseller starter pack ", "fullName": "Reseller starter pack (5) TIR15 SET (5) TIR 30 SET", "price": 10000, "emoji": "🏆" },
+      { "id": "reseller_tir15_jinan", "name": "Tirzepatide 15 mg (Jinan Millions Pharma)", "fullName": "10 vials - Tirzepatide 15 mg with bac3", "price": 6000, "emoji": "📦" },
+      { "id": "reseller_tir30_jinan", "name": "Tirzepatide 30mg (Jinan Millions Pharma)", "fullName": "10vials - Tirzepatide 30mg with bac3", "price": 7500, "emoji": "📦" }
+    ]
+  },
   {
     "category": "Add Ons",
     "icon": "➕",
