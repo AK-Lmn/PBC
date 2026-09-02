@@ -1,4 +1,6 @@
+// ── Endpoints ───────────────────────────────────────────────
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8o3AhN6cWrhbCtDzRKmDROCGCAKDH8eZ4H2HlFz0mWGeqpcuCB_KgaWvnjsBq-r4n/exec';
+const ORDER_API_URL = 'https://admin-pbc.vercel.app/api/orders';
 
 // ── Cart / State Hook ───────────────────────────────────────
 const cart = {};
@@ -47,12 +49,9 @@ function getTotalItemCount() {
   });
   
   orders.forEach(order => {
-    if (order.itemLines) {
-      order.itemLines.forEach(line => {
-        const match = line.match(/×(\d+)/);
-        if (match) {
-          totalPcs += parseInt(match[1]) || 1;
-        }
+    if (order.items) {
+      order.items.forEach(item => {
+        totalPcs += item.quantity || 1;
       });
     }
   });
@@ -341,7 +340,7 @@ function calculateGrandTotal() {
   return grand;
 }
 
-// ── Submit ALL orders to Google Sheets ──────────────────────
+// ── Two-Step Checkout Submission (Drive Upload -> Next.js Intake) ──
 async function submitOrder() {
   const name    = document.getElementById('custName').value.trim();
   const contact = document.getElementById('custContact').value.trim();
@@ -363,52 +362,115 @@ async function submitOrder() {
     return;
   }
 
-  let allItemLines = [];
-  orders.forEach(order => allItemLines.push(...order.itemLines));
-  Object.values(cart).forEach(item => {
-    allItemLines.push(`${item.name} ×${item.qty} = ₱${(item.price * item.qty).toLocaleString()}`);
-  });
-  
-  if (selectedRegion) {
-    allItemLines.push(`[Shipping: ${selectedRegion.toUpperCase()} = ₱${selectedShippingCost}]`);
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '💗 Uploading Receipt...';
+
+  let paymentProofUrl = '';
+
+  // ── Step 1: Upload Receipt to Google Drive via Apps Script ──
+  try {
+    const drivePayload = {
+      name,
+      contact,
+      address:   address || '—',
+      notes:     notes || '—',
+      imageName: paymentImageName || 'receipt.png',
+      imageData: paymentImageData || ''
+    };
+
+    const driveRes = await fetch(GOOGLE_SCRIPT_URL, {
+      method:  'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body:    JSON.stringify(drivePayload)
+    });
+
+    const driveResult = await driveRes.json().catch(() => null);
+    
+    if (driveResult && (driveResult.url || driveResult.fileId || driveResult.paymentProofUrl)) {
+      paymentProofUrl = driveResult.url || driveResult.fileId || driveResult.paymentProofUrl;
+    } else if (driveResult && driveResult.id) {
+      paymentProofUrl = driveResult.id;
+    } else {
+      paymentProofUrl = paymentImageName || 'uploaded_receipt';
+    }
+  } catch (driveErr) {
+    console.warn('Google Drive receipt upload fallback:', driveErr);
+    paymentProofUrl = paymentImageName || 'uploaded_receipt';
   }
+
+  // ── Step 2: Submit Order Payload to Production Next.js API ──
+  submitBtn.textContent = '💗 Submitting Order...';
+
+  const formattedItems = [];
+
+  orders.forEach(order => {
+    if (order.items && Array.isArray(order.items)) {
+      formattedItems.push(...order.items);
+    } else if (order.itemLines && Array.isArray(order.itemLines)) {
+      order.itemLines.forEach(line => {
+        const match = line.match(/^(.*?)\s*[×x](\d+)\s*=\s*₱?([\d,]+)/);
+        if (match) {
+          const qty = parseInt(match[2], 10) || 1;
+          const totalCents = parseFloat(match[3].replace(/,/g, '')) || 0;
+          formattedItems.push({
+            name: match[1].trim(),
+            quantity: qty,
+            price: Math.round(totalCents / qty)
+          });
+        } else {
+          formattedItems.push({ name: line, quantity: 1, price: 0 });
+        }
+      });
+    }
+  });
+
+  Object.values(cart).forEach(item => {
+    formattedItems.push({
+      name: item.name,
+      quantity: item.qty,
+      price: item.price
+    });
+  });
 
   const grandTotal = calculateGrandTotal();
 
-  const submitBtn = document.getElementById('submitBtn');
-  submitBtn.disabled = true;
-  submitBtn.textContent = '💗 Sending...';
-
-  const payload = {
-    name,
-    contact,
-    address:   address || '—',
-    items:     allItemLines.join(' | '),
-    total:     '₱' + grandTotal.toLocaleString(),
-    notes:     notes || '—',
-    timestamp: new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' }),
-    imageName: paymentImageName || '—',
-    imageData: paymentImageData || ''
+  const apiPayload = {
+    customerName:    name,
+    customerPhone:   contact,
+    deliveryAddress: address || '—',
+    items:           formattedItems,
+    shippingRegion:  selectedRegion || 'other',
+    shippingFee:     selectedShippingCost,
+    totalAmount:     grandTotal,
+    notes:           notes || null,
+    paymentProofUrl: paymentProofUrl
   };
 
   try {
-    await fetch(GOOGLE_SCRIPT_URL, {
+    const apiRes = await fetch(ORDER_API_URL, {
       method:  'POST',
-      mode:    'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload)
+      body:    JSON.stringify(apiPayload)
     });
-  } catch (err) {
-    console.error('Submission error:', err);
+
+    const apiData = await apiRes.json();
+
+    if (apiRes.ok && apiData.success) {
+      const orderRef = apiData.orderNumber ? ` (${apiData.orderNumber})` : '';
+      document.getElementById('successMsg').textContent =
+        `Thank you, ${name}! 🌸 Your order${orderRef} totalling ₱${grandTotal.toLocaleString()} has been received! We'll contact you at ${contact} shortly!`;
+      document.getElementById('successOverlay').classList.add('show');
+    } else {
+      alert(`Order Submission Failed: ${apiData.error || 'Please try again 💗'}`);
+    }
+  } catch (apiErr) {
+    console.error('Next.js API submission error:', apiErr);
+    alert('Network error submitting order to backend. Please check your connection and try again.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '💗 Submit My Order 💗';
   }
-
-  submitBtn.disabled = false;
-  submitBtn.textContent = '💗 Submit My Order 💗';
-
-  document.getElementById('successMsg').textContent =
-    `Thank you, ${name}! 🌸 Your order totalling ₱${grandTotal.toLocaleString()} has been received. We'll contact you at ${contact} shortly!`;
-
-  document.getElementById('successOverlay').classList.add('show');
 }
 
 function handlePaymentScreenshot(event) {
@@ -484,11 +546,15 @@ function addCurrentToOrders() {
     return;
   }
   const orderTotal = Object.values(cart).reduce((sum, item) => sum + item.price * item.qty, 0);
-  const itemLines = keys.map(k => {
+  const items = keys.map(k => {
     const item = cart[k];
-    return `${item.name} ×${item.qty} = ₱${(item.price * item.qty).toLocaleString()}`;
+    return {
+      name: item.name,
+      quantity: item.qty,
+      price: item.price
+    };
   });
-  orders.push({ total: orderTotal, itemLines });
+  orders.push({ total: orderTotal, items });
 
   Object.keys(cart).forEach(k => delete cart[k]);
   document.querySelectorAll('.product-card.selected').forEach(c => c.classList.remove('selected'));
