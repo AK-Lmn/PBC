@@ -572,12 +572,29 @@ function startNewOrder() {
 // ── Dynamic Master Database JSON Loader ─────────────────────
 async function loadProductsFromJSON() {
   try {
-    const response = await fetch("products.json");
-    const productData = await response.json();
+    let productData = null;
+
+    try {
+      const response = await fetch("products.json");
+      if (response && response.ok) {
+        productData = await response.json();
+      }
+    } catch (fetchErr) {
+      console.warn("fetch('products.json') failed (likely running directly via file:// protocol). Falling back to embedded product data.", fetchErr);
+    }
+
+    if (!productData && typeof window !== "undefined" && window.PRODUCT_CATALOG_DATA) {
+      productData = window.PRODUCT_CATALOG_DATA;
+    }
+
+    if (!productData) {
+      throw new Error("Unable to load product data via fetch or fallback.");
+    }
     
     const catalogContainer = document.getElementById("productCatalog");
     if (!catalogContainer) return;
 
+    catalogCategories = [];
     let catalogHTML = "";
 
     productData.forEach(group => {
