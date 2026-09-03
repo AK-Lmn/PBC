@@ -106,8 +106,8 @@
         </div>
       </section>
 
-      <section class="panel-card">
-        <div class="panel-section-title">Previous Orders</div>
+      <section class="panel-card" id="previousOrdersSection" style="display:none;">
+        <div class="panel-section-title">Previous Batches</div>
         <div id="ordersList"></div>
       </section>
 
@@ -211,8 +211,10 @@
         </div>
       </section>
 
-      <button class="submit-btn submit-btn--secondary" onclick="addCurrentToOrders()">+ Add Current to Orders</button>
-      <button class="submit-btn submit-btn--secondary submit-btn--warm" onclick="startNewOrder()">↺ Start New Order</button>
+      <div class="batch-actions-wrap">
+        <button type="button" class="batch-btn" onclick="addCurrentToOrders()">+ Save Cart as Batch</button>
+        <button type="button" class="batch-btn batch-btn--clear" onclick="startNewOrder()">↺ Reset Cart</button>
+      </div>
 
       <section class="panel-card payment-section">
         <div class="panel-section-title">Payment</div>
@@ -273,6 +275,7 @@
       </section>
 
       <button class="submit-btn" id="submitBtn" onclick="submitOrder()" disabled>Submit My Order</button>
+      <div class="submit-helper" id="submitHelper">Select items and upload payment screenshot to submit order</div>
     </div>
   </div>
 
@@ -294,6 +297,8 @@
       <button class="success-close" onclick="closeSuccess()">Done</button>
     </div>
   </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
   <script src="products-data.js"></script>
   <script src="script.js"></script>

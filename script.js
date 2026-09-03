@@ -37,6 +37,29 @@ function iconX(className = 'icon icon-sm') {
   </svg>`;
 }
 
+// ── Toast Notifications & Field Validation ──────────────────
+function showToast(message, type = 'error') {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = `toast toast--${type}`;
+  const icon = type === 'success' ? '🌸' : '⚠️';
+  toast.innerHTML = `<span class="toast-icon">${icon}</span><span class="toast-msg">${message}</span>`;
+  container.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add('show'));
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+
+function clearFieldErrors() {
+  document.querySelectorAll('.field-input.has-error, .upload-dropzone.has-error').forEach(el => el.classList.remove('has-error'));
+}
+
 let shippingConfig = {
   luzon: { 1: 80, 2: 95, max: 120 },
   visayas: { 1: 100, 2: 140, max: 180 },
@@ -330,6 +353,11 @@ function renderOrder() {
   }
   ordersList.innerHTML = ordersHtml;
 
+  const prevSection = document.getElementById('previousOrdersSection');
+  if (prevSection) {
+    prevSection.style.display = orders.length ? '' : 'none';
+  }
+
   calculateDynamicShipping();
 
   updateTotals(currentTotal, calculateGrandTotal());
@@ -337,7 +365,29 @@ function renderOrder() {
 
 function updateTotals(currentTotal, grandTotal) {
   document.getElementById('totalAmount').textContent = grandTotal.toLocaleString();
-  document.getElementById('submitBtn').disabled = grandTotal === 0 || !paymentImageData;
+  
+  const hasItems = grandTotal > 0 && (Object.keys(cart).length > 0 || orders.length > 0);
+  const hasPayment = !!paymentImageData;
+  const submitBtn = document.getElementById('submitBtn');
+  const submitHelper = document.getElementById('submitHelper');
+
+  if (submitBtn) {
+    submitBtn.disabled = !hasItems || !hasPayment;
+  }
+
+  if (submitHelper) {
+    if (!hasItems) {
+      submitHelper.textContent = 'Select items above to begin your order';
+      submitHelper.className = 'submit-helper';
+    } else if (!hasPayment) {
+      submitHelper.textContent = 'Upload payment screenshot to enable submission';
+      submitHelper.className = 'submit-helper submit-helper--prompt';
+    } else {
+      submitHelper.textContent = 'Ready to submit! Tap button above 🌸';
+      submitHelper.className = 'submit-helper submit-helper--ready';
+    }
+  }
+
   updateCheckoutAffordances(grandTotal);
 }
 
@@ -356,23 +406,40 @@ function calculateGrandTotal() {
 
 // ── Two-Step Checkout Submission (Drive Upload -> Next.js Intake) ──
 async function submitOrder() {
-  const name    = document.getElementById('custName').value.trim();
-  const contact = document.getElementById('custContact').value.trim();
-  const address = document.getElementById('custAddress').value.trim();
+  clearFieldErrors();
+
+  const nameInput    = document.getElementById('custName');
+  const contactInput = document.getElementById('custContact');
+  const addressInput = document.getElementById('custAddress');
+
+  const name    = nameInput.value.trim();
+  const contact = contactInput.value.trim();
+  const address = addressInput.value.trim();
   const notes   = document.getElementById('custNotes').value.trim();
 
-  if (!name || !contact) {
-    alert('Please enter your name and contact details 💗');
+  if (!name) {
+    nameInput.classList.add('has-error');
+    nameInput.focus();
+    showToast('Please enter your full name 💗');
+    return;
+  }
+
+  if (!contact) {
+    contactInput.classList.add('has-error');
+    contactInput.focus();
+    showToast('Please enter your contact number 💗');
     return;
   }
 
   if (!paymentImageData) {
-    alert('Please upload your payment screenshot before submitting.');
+    const uploadDropzone = document.querySelector('.upload-dropzone');
+    if (uploadDropzone) uploadDropzone.classList.add('has-error');
+    showToast('Please upload your payment screenshot before submitting.');
     return;
   }
 
   if (orders.length === 0 && Object.keys(cart).length === 0) {
-    alert('Please add some items to your order 💗');
+    showToast('Please add some items to your order 💗');
     return;
   }
 
@@ -476,11 +543,11 @@ async function submitOrder() {
         `Thank you, ${name}! 🌸 Your order${orderRef} totalling ₱${grandTotal.toLocaleString()} has been received! We'll contact you at ${contact} shortly!`;
       document.getElementById('successOverlay').classList.add('show');
     } else {
-      alert(`Order Submission Failed: ${apiData.error || 'Please try again 💗'}`);
+      showToast(`Order Submission Failed: ${apiData.error || 'Please try again 💗'}`);
     }
   } catch (apiErr) {
     console.error('Next.js API submission error:', apiErr);
-    alert('Network error submitting order to backend. Please check your connection and try again.');
+    showToast('Network error submitting order to backend. Please check your connection and try again.');
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = '💗 Submit My Order 💗';
@@ -502,11 +569,14 @@ function handlePaymentScreenshot(event) {
   }
 
   if (file.size > 5 * 1024 * 1024) {
-    alert('Please choose an image smaller than 5MB.');
+    showToast('Please choose an image smaller than 5MB.');
     event.target.value = '';
     renderOrder();
     return;
   }
+
+  const dropzone = document.querySelector('.upload-dropzone');
+  if (dropzone) dropzone.classList.remove('has-error');
 
   paymentImageName = file.name;
   const reader = new FileReader();
@@ -542,6 +612,7 @@ function closeSuccess() {
   selectedShippingCost = 0;
   
   document.querySelectorAll('.shipping-option').forEach(btn => btn.classList.remove('active'));
+  clearFieldErrors();
   renderOrder();
 
   document.querySelectorAll('.product-card.selected')
@@ -556,7 +627,7 @@ function closeSuccess() {
 function addCurrentToOrders() {
   const keys = Object.keys(cart);
   if (keys.length === 0) {
-    alert('No items in current cart 💗');
+    showToast('No items in current cart 💗');
     return;
   }
   const orderTotal = Object.values(cart).reduce((sum, item) => sum + item.price * item.qty, 0);
@@ -835,6 +906,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('searchInput').addEventListener('input', function () {
     applyCatalogFilters();
+  });
+
+  // Clear field errors as user fills them out
+  ['custName', 'custContact', 'custAddress'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', () => el.classList.remove('has-error'));
+    }
   });
 
   // Auto-sync catalog in background whenever the customer returns to the tab
