@@ -1,6 +1,11 @@
 // ── Endpoints ───────────────────────────────────────────────
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8o3AhN6cWrhbCtDzRKmDROCGCAKDH8eZ4H2HlFz0mWGeqpcuCB_KgaWvnjsBq-r4n/exec';
 const ORDER_API_URL = 'https://admin-pbc.vercel.app/api/orders';
+const PRODUCTS_API_URL = 'https://admin-pbc.vercel.app/api/products';
+const CATALOG_CACHE_KEY = 'prs_catalog_data';
+
+// ── In-Memory Catalog Cache ─────────────────────────────────
+let cachedCatalogData = null;
 
 // ── Cart / State Hook ───────────────────────────────────────
 const cart = {};
@@ -62,6 +67,7 @@ function getTotalItemCount() {
 // ── Dynamic Shipping Calculator ──────────────────────────────
 function calculateDynamicShipping() {
   const totalItems = getTotalItemCount();
+  const regions = ["luzon", "visayas", "mindanao", "other"];
 
   if (totalItems === 0) {
     selectedRegion = "";
@@ -69,33 +75,34 @@ function calculateDynamicShipping() {
     
     document.querySelectorAll('.shipping-option').forEach(btn => btn.classList.remove('active'));
     
-    ["luzon", "visayas", "mindanao", "other"].forEach(r => {
-      const el = document.getElementById(`ship${r.charAt(0).toUpperCase() + r.slice(1)}`);
+    regions.forEach(r => {
+      const el = document.getElementById(`ship${r.charAt(0).toUpperCase() + r.slice(1)}`) ||
+                 document.querySelector(`[onclick="selectShipping('${r}')"] span:last-child`);
       if (el) {
         el.innerText = "₱0";
-      } else if (r === "other") {
-        const otherBtn = document.querySelector(`[onclick="selectShipping('other')"] span`);
-        if (otherBtn) otherBtn.innerText = "₱0";
       }
     });
     return;
   }
 
-  ["luzon", "visayas", "mindanao", "other"].forEach(r => {
-    let el = document.getElementById(`ship${r.charAt(0).toUpperCase() + r.slice(1)}`);
-    if (!el && r === "other") {
-      el = document.querySelector(`[onclick="selectShipping('other')"] span`);
-    }
+  regions.forEach(r => {
+    const el = document.getElementById(`ship${r.charAt(0).toUpperCase() + r.slice(1)}`) ||
+               document.querySelector(`[onclick="selectShipping('${r}')"] span:last-child`);
 
     if (el && shippingConfig[r]) {
       const count = totalItems <= 1 ? "1" : (totalItems === 2 ? "2" : "max");
-      el.innerText = `₱${shippingConfig[r][count]}`;
+      const rate = shippingConfig[r][count] !== undefined
+        ? shippingConfig[r][count]
+        : (shippingConfig[r].max !== undefined ? shippingConfig[r].max : (typeof shippingConfig[r] === 'number' ? shippingConfig[r] : 0));
+      el.innerText = `₱${rate}`;
     }
   });
 
   if (selectedRegion && shippingConfig[selectedRegion]) {
     const count = totalItems <= 1 ? "1" : (totalItems === 2 ? "2" : "max");
-    selectedShippingCost = shippingConfig[selectedRegion][count];
+    selectedShippingCost = shippingConfig[selectedRegion][count] !== undefined
+      ? shippingConfig[selectedRegion][count]
+      : (shippingConfig[selectedRegion].max !== undefined ? shippingConfig[selectedRegion].max : (typeof shippingConfig[selectedRegion] === 'number' ? shippingConfig[selectedRegion] : 0));
   } else {
     selectedShippingCost = 0;
   }
@@ -569,69 +576,128 @@ function startNewOrder() {
   renderOrder();
 }
 
-// ── Dynamic Master Database JSON Loader ─────────────────────
-async function loadProductsFromJSON() {
+// ── Dynamic Master Database JSON / API Loader ───────────────
+async function fetchCatalogData() {
+  // 1. Network-First: Always attempt to fetch the live catalog first from PRODUCTS_API_URL
   try {
-    let productData = null;
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeoutId = controller ? setTimeout(() => controller.abort(), 6000) : null;
+    const response = await fetch(`${PRODUCTS_API_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+      signal: controller ? controller.signal : undefined,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (timeoutId) clearTimeout(timeoutId);
 
-    try {
-      const response = await fetch("products.json");
-      if (response && response.ok) {
-        productData = await response.json();
+    if (response && response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data) && data.length > 0) {
+        cachedCatalogData = data;
+        try {
+          sessionStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify(data));
+        } catch (storageErr) {
+          console.warn('Unable to write catalog to sessionStorage:', storageErr);
+        }
+        return data;
       }
-    } catch (fetchErr) {
-      console.warn("fetch('products.json') failed (likely running directly via file:// protocol). Falling back to embedded product data.", fetchErr);
+    }
+    throw new Error(`API returned non-ok or invalid data (${response ? response.status : 'unknown'})`);
+  } catch (apiErr) {
+    console.warn("Live API fetch failed. Falling back to cache or local catalog:", apiErr);
+  }
+
+  // 2. Fallback Behavior (Offline / Failure Only):
+  // Check sessionStorage cache
+  try {
+    const cached = sessionStorage.getItem(CATALOG_CACHE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        console.info("Loaded catalog from sessionStorage fallback.");
+        cachedCatalogData = parsed;
+        return parsed;
+      }
+    }
+  } catch (storageErr) {
+    console.warn("Error reading from sessionStorage fallback:", storageErr);
+  }
+
+  // Check in-memory cache if available
+  if (cachedCatalogData && Array.isArray(cachedCatalogData) && cachedCatalogData.length > 0) {
+    console.info("Loaded catalog from in-memory fallback.");
+    return cachedCatalogData;
+  }
+
+  // Fall back to bundled window.PRODUCT_CATALOG_DATA
+  if (typeof window !== "undefined" && window.PRODUCT_CATALOG_DATA && Array.isArray(window.PRODUCT_CATALOG_DATA)) {
+    console.info("Loaded catalog from bundled window.PRODUCT_CATALOG_DATA fallback.");
+    cachedCatalogData = window.PRODUCT_CATALOG_DATA;
+    return window.PRODUCT_CATALOG_DATA;
+  }
+
+  // Fall back to local products.json
+  try {
+    const response = await fetch("products.json");
+    if (response && response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data) && data.length > 0) {
+        console.info("Loaded catalog from local products.json fallback.");
+        cachedCatalogData = data;
+        return data;
+      }
+    }
+  } catch (fetchErr) {
+    console.warn("fetch('products.json') fallback failed:", fetchErr);
+  }
+
+  throw new Error("Unable to load product data via live API or fallbacks.");
+}
+
+function renderCatalog(productData) {
+  const catalogContainer = document.getElementById("productCatalog");
+  if (!catalogContainer || !Array.isArray(productData)) return;
+
+  catalogCategories = [];
+  let catalogHTML = "";
+
+  productData.forEach(group => {
+    // INTERCEPT CONFIG
+    if (group.type === "shipping_config" && group.rates) {
+      shippingConfig = group.rates;
+      return; 
     }
 
-    if (!productData && typeof window !== "undefined" && window.PRODUCT_CATALOG_DATA) {
-      productData = window.PRODUCT_CATALOG_DATA;
+    if (group.category) {
+      catalogCategories.push(group.category);
     }
 
-    if (!productData) {
-      throw new Error("Unable to load product data via fetch or fallback.");
-    }
+    const pillHTML = group.pill ? `<span class="cat-pill">${group.pill}</span>` : "";
     
-    const catalogContainer = document.getElementById("productCatalog");
-    if (!catalogContainer) return;
+    catalogHTML += `
+      <div class="product-group" data-group data-category="${group.category}">
+        <div class="cat-header">
+          <span class="cat-icon">${group.icon || '🛍️'}</span>
+          <span class="cat-title">${group.category}</span>
+          ${pillHTML}
+        </div>
+        <div class="product-grid">
+    `;
 
-    catalogCategories = [];
-    let catalogHTML = "";
-
-    productData.forEach(group => {
-      // INTERCEPT CONFIG
-      if (group.type === "shipping_config" && group.rates) {
-        shippingConfig = group.rates;
-        return; 
-      }
-
-      if (group.category) {
-        catalogCategories.push(group.category);
-      }
-
-      let pillHTML = group.pill ? `<span class="cat-pill">${group.pill}</span>` : "";
-      
-      catalogHTML += `
-        <div class="product-group" data-group data-category="${group.category}">
-          <div class="cat-header">
-            <span class="cat-icon">${group.icon}</span>
-            <span class="cat-title">${group.category}</span>
-            ${pillHTML}
-          </div>
-          <div class="product-grid">
-      `;
-
+    if (group.items && Array.isArray(group.items)) {
       group.items.forEach(item => {
+        const itemPrice = Number(item.price) || 0;
+        const itemEmoji = item.emoji || '💉';
         catalogHTML += `
-          <div class="product-card" data-name="${item.fullName}" data-price="${item.price}" onclick="toggleProduct(this)">
+          <div class="product-card" data-name="${item.fullName}" data-price="${itemPrice}" onclick="toggleProduct(this)">
             <div class="card-check" aria-hidden="true">
               <svg class="icon icon-sm" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="m5 12 4 4L19 6" />
               </svg>
             </div>
-            <span class="card-emoji">${item.emoji}</span>
+            <span class="card-emoji">${itemEmoji}</span>
             <div class="card-name">${item.name}</div>
             <div class="card-fullname">${item.fullName}</div>
-            <div class="card-price">${item.price.toLocaleString()}</div>
+            <div class="card-price">${itemPrice.toLocaleString()}</div>
             <div class="add-pill">+ Add</div>
             <div class="qty-control">
               <button class="qty-btn" onclick="changeQty(event,this,-1)">−</button>
@@ -641,19 +707,54 @@ async function loadProductsFromJSON() {
           </div>
         `;
       });
+    }
 
-      catalogHTML += `
-          </div>
+    catalogHTML += `
         </div>
-        <hr class="cat-divider">
-      `;
-    });
+      </div>
+      <hr class="cat-divider">
+    `;
+  });
 
-    catalogContainer.innerHTML = catalogHTML;
-    renderCategoryPills();
-    
-    calculateDynamicShipping();
-    applyCatalogFilters();
+  catalogContainer.innerHTML = catalogHTML;
+  renderCategoryPills();
+  
+  calculateDynamicShipping();
+  applyCatalogFilters();
+
+  // Restore cart selection state on rendered cards if cart already has items
+  document.querySelectorAll('.product-card').forEach(card => {
+    const name = card.dataset.name;
+    if (cart[name]) {
+      card.classList.add('selected');
+      const qtyEl = card.querySelector('.qty-num');
+      if (qtyEl) qtyEl.textContent = cart[name].qty;
+    }
+  });
+}
+
+async function loadProductsFromJSON() {
+  // If we have cached/bundled data already available, render immediately to avoid empty screen
+  try {
+    let immediateData = null;
+    try {
+      const cached = sessionStorage.getItem(CATALOG_CACHE_KEY);
+      if (cached) immediateData = JSON.parse(cached);
+    } catch (_) {}
+    if (!immediateData && typeof window !== "undefined" && window.PRODUCT_CATALOG_DATA) {
+      immediateData = window.PRODUCT_CATALOG_DATA;
+    }
+    if (immediateData && Array.isArray(immediateData)) {
+      renderCatalog(immediateData);
+    }
+  } catch (initErr) {
+    console.warn("Initial sync render warning:", initErr);
+  }
+
+  // Fetch freshest catalog from API (with seamless fallback)
+  try {
+    const productData = await fetchCatalogData();
+    renderCatalog(productData);
   } catch (error) {
     console.error("Hala, nag-error ang configuration rendering mapping:", error);
   }
