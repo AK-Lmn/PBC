@@ -4,8 +4,10 @@ const ORDER_API_URL = 'https://admin-pbc.vercel.app/api/orders';
 const PRODUCTS_API_URL = 'https://admin-pbc.vercel.app/api/products';
 const CATALOG_CACHE_KEY = 'prs_catalog_data';
 
-// ── In-Memory Catalog Cache ─────────────────────────────────
+// ── In-Memory Catalog Cache & Sync State ────────────────────
 let cachedCatalogData = null;
+let currentRenderedJSON = '';
+let isSyncingCatalog = false;
 
 // ── Cart / State Hook ───────────────────────────────────────
 const cart = {};
@@ -179,6 +181,11 @@ function renderCategoryPills() {
   const strip = document.getElementById('categoryStrip');
   if (!strip) return;
 
+  const pillValues = ['all', ...catalogCategories.map(l => l.toLowerCase())];
+  if (!pillValues.includes(activeCategory)) {
+    activeCategory = 'all';
+  }
+
   const pills = [
     { label: 'All Products', value: 'all' },
     ...catalogCategories.map(label => ({
@@ -187,8 +194,8 @@ function renderCategoryPills() {
     }))
   ];
 
-  strip.innerHTML = pills.map((pill, index) => `
-    <button type="button" class="category-pill${index === 0 ? ' active' : ''}" data-category="${pill.value}">${pill.label}</button>
+  strip.innerHTML = pills.map(pill => `
+    <button type="button" class="category-pill${pill.value === activeCategory ? ' active' : ''}" data-category="${pill.value}">${pill.label}</button>
   `).join('');
 
   strip.querySelectorAll('.category-pill').forEach(btn => {
@@ -657,6 +664,8 @@ function renderCatalog(productData) {
   const catalogContainer = document.getElementById("productCatalog");
   if (!catalogContainer || !Array.isArray(productData)) return;
 
+  currentRenderedJSON = JSON.stringify(productData);
+
   catalogCategories = [];
   let catalogHTML = "";
 
@@ -722,41 +731,101 @@ function renderCatalog(productData) {
   calculateDynamicShipping();
   applyCatalogFilters();
 
-  // Restore cart selection state on rendered cards if cart already has items
+  // Restore cart selection state and preserve existing quantities without reset
   document.querySelectorAll('.product-card').forEach(card => {
     const name = card.dataset.name;
     if (cart[name]) {
       card.classList.add('selected');
+      const newPrice = parseInt(card.dataset.price, 10);
+      if (!isNaN(newPrice) && newPrice > 0) {
+        cart[name].price = newPrice;
+      }
       const qtyEl = card.querySelector('.qty-num');
       if (qtyEl) qtyEl.textContent = cart[name].qty;
     }
   });
+
+  // Re-calculate order panel totals with latest prices/shipping
+  renderOrder();
+}
+
+// ── Background Auto-Sync Helper ─────────────────────────────
+async function syncCatalogInBackground() {
+  if (isSyncingCatalog) return;
+  isSyncingCatalog = true;
+
+  try {
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeoutId = controller ? setTimeout(() => controller.abort(), 6000) : null;
+    const response = await fetch(`${PRODUCTS_API_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+      signal: controller ? controller.signal : undefined,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (timeoutId) clearTimeout(timeoutId);
+
+    if (response && response.ok) {
+      const freshData = await response.json();
+      if (Array.isArray(freshData) && freshData.length > 0) {
+        const freshJSON = JSON.stringify(freshData);
+        if (freshJSON !== currentRenderedJSON) {
+          console.info("Live catalog update detected in background. Syncing storefront...");
+          cachedCatalogData = freshData;
+          try {
+            sessionStorage.setItem(CATALOG_CACHE_KEY, freshJSON);
+          } catch (storageErr) {
+            console.warn('Unable to write catalog to sessionStorage:', storageErr);
+          }
+          renderCatalog(freshData);
+        }
+      }
+    }
+  } catch (syncErr) {
+    console.warn("Background catalog auto-sync warning:", syncErr);
+  } finally {
+    isSyncingCatalog = false;
+  }
 }
 
 async function loadProductsFromJSON() {
-  // If we have cached/bundled data already available, render immediately to avoid empty screen
+  // 1. Instant Render (Stale-While-Revalidate):
+  // Check sessionStorage or in-memory cache for immediate 0ms paint
+  let hasRendered = false;
   try {
-    let immediateData = null;
-    try {
+    let initialData = cachedCatalogData;
+    if (!initialData) {
       const cached = sessionStorage.getItem(CATALOG_CACHE_KEY);
-      if (cached) immediateData = JSON.parse(cached);
-    } catch (_) {}
-    if (!immediateData && typeof window !== "undefined" && window.PRODUCT_CATALOG_DATA) {
-      immediateData = window.PRODUCT_CATALOG_DATA;
+      if (cached) {
+        initialData = JSON.parse(cached);
+      }
     }
-    if (immediateData && Array.isArray(immediateData)) {
-      renderCatalog(immediateData);
+    if (!initialData && typeof window !== "undefined" && window.PRODUCT_CATALOG_DATA) {
+      initialData = window.PRODUCT_CATALOG_DATA;
+    }
+    if (initialData && Array.isArray(initialData) && initialData.length > 0) {
+      cachedCatalogData = initialData;
+      renderCatalog(initialData);
+      hasRendered = true;
     }
   } catch (initErr) {
     console.warn("Initial sync render warning:", initErr);
   }
 
-  // Fetch freshest catalog from API (with seamless fallback)
+  // 2. Concurrently fetch fresh catalog from API
   try {
-    const productData = await fetchCatalogData();
-    renderCatalog(productData);
+    const freshData = await fetchCatalogData();
+    if (freshData && Array.isArray(freshData)) {
+      const freshJSON = JSON.stringify(freshData);
+      if (freshJSON !== currentRenderedJSON || !hasRendered) {
+        console.info("Catalog updated from live API. Re-rendering storefront...");
+        renderCatalog(freshData);
+      }
+    }
   } catch (error) {
     console.error("Hala, nag-error ang configuration rendering mapping:", error);
+    if (!hasRendered && typeof window !== "undefined" && window.PRODUCT_CATALOG_DATA) {
+      renderCatalog(window.PRODUCT_CATALOG_DATA);
+    }
   }
 }
 
@@ -767,6 +836,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('searchInput').addEventListener('input', function () {
     applyCatalogFilters();
   });
+
+  // Auto-sync catalog in background whenever the customer returns to the tab
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      syncCatalogInBackground();
+    }
+  });
+
+  // Auto-sync catalog in background every 60 seconds while active
+  setInterval(() => {
+    if (document.visibilityState === 'visible') {
+      syncCatalogInBackground();
+    }
+  }, 60000);
 });
 
 // ── Payment tab switcher ────────────────────────────────────
