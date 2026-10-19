@@ -473,11 +473,12 @@ async function submitOrder() {
     } else if (driveResult && driveResult.id) {
       paymentProofUrl = driveResult.id;
     } else {
-      paymentProofUrl = paymentImageName || 'uploaded_receipt';
+      // If Apps Script failed or didn't return an ID, fallback to base64 imageData for direct backend Drive upload
+      paymentProofUrl = paymentImageData || paymentImageName || 'uploaded_receipt';
     }
   } catch (driveErr) {
     console.warn('Google Drive receipt upload fallback:', driveErr);
-    paymentProofUrl = paymentImageName || 'uploaded_receipt';
+    paymentProofUrl = paymentImageData || paymentImageName || 'uploaded_receipt';
   }
 
   // ── Step 2: Submit Order Payload to Production Next.js API ──
@@ -525,7 +526,9 @@ async function submitOrder() {
     shippingFee:     selectedShippingCost,
     totalAmount:     grandTotal,
     notes:           notes || null,
-    paymentProofUrl: paymentProofUrl
+    paymentProofUrl: paymentProofUrl,
+    imageName:       paymentImageName || null,
+    imageData:       paymentImageData || null
   };
 
   try {
