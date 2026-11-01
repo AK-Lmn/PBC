@@ -1,0 +1,10 @@
+<environment_context>
+  <shell_version>7.6</shell_version>
+  <current_date>2026-10-28</current_date>
+  <timezone>Asia/Manila</timezone>
+  <filesystem><workspace_roots><root>C:\Users\ckzz2\OneDrive\Documents\GitHub\PBC</root><root>C:\Users\ckzz2\OneDrive\Documents\GitHub\admin-pbc</root><root>C:\Users\ckzz2\.codex\visualizations\2026\10\28\01a1814c-36ea-7de2-8282-9c1363b36586</root></workspace_roots><permission_profile type="disabled"><file_system type="unrestricted" /></permission_profile></filesystem>
+  <subagents>
+    <agent name="/root/simplification_review" />
+    <agent name="/root/storefront_ui" />
+  </subagents>
+</environment_context>
