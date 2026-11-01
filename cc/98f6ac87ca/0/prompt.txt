@@ -1,0 +1,8 @@
+# Response annotations:
+Each item contains text selected from an earlier Codex response and may include a user comment. Treat items as Annotation 1, Annotation 2, and so on in array order. Use every selection as context and address every comment. For every annotation you address, include its inline directive `:codex-annotation{index="N"}`, where N is its one-based array position (for example, `:codex-annotation{index="1"}`). Do not use unstructured annotation labels.
+<response-annotations>
+[{"text":".gitignore excludes generated Fullstack Audit files under docs/.\napp/globals.css removes the pink/lavender theme override and restores cream, green, and coral styling. It also lets the notice bar, hero art, and “How it works” section show.\napp/page.tsx adds those homepage sections and a “How it works” navigation link.","source":{"messageId":"msg_0135b7f4a59457ec016ae1d53b1ef4819192b853d1f0f3f8f1","startOffset":95,"endOffset":412}}]
+</response-annotations>
+
+## My request:
+are those safe to commit??
