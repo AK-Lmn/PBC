@@ -1,0 +1,3 @@
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_daf4745a9a1a4e53909877e14d80c00c\",0]","question":"Do you authorize retrying the direct update to protected `main` despite the automatic review block? I will wait for confirmation before retrying.","answer":"Retry direct-to-main"}]
+</send_user_message_question_reply>
