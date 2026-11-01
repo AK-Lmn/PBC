@@ -1,0 +1,29 @@
+# AGENTS.md instructions for C:\Users\ckzz2\.codex\worktrees\group-buy-drive-oauth\admin-pbc
+
+<INSTRUCTIONS>
+These AGENTS.md instructions replace all previously provided AGENTS.md instructions.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
+
+</INSTRUCTIONS>
+
+<environment_context>
+  <cwd>C:\Users\ckzz2\.codex\worktrees\group-buy-drive-oauth\admin-pbc</cwd>
+  <shell>powershell</shell>
+  <shell_version>7.6</shell_version>
+  <current_date>2026-10-28</current_date>
+  <timezone>Asia/Manila</timezone>
+  <filesystem><workspace_roots><root>C:\Users\ckzz2\OneDrive\Documents\GitHub\PBC</root><root>C:\Users\ckzz2\OneDrive\Documents\GitHub\admin-pbc</root><root>C:\Users\ckzz2\.codex\visualizations\2026\10\28\01a1814c-36ea-7de2-8282-9c1363b36586</root></workspace_roots><permission_profile type="managed"><file_system type="restricted"><entry access="read"><special>:root</special></entry><entry access="write"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\PBC</path></entry><entry access="write"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\admin-pbc</path></entry><entry access="write"><path>C:\Users\ckzz2\.codex\visualizations\2026\10\28\01a1814c-36ea-7de2-8282-9c1363b36586</path></entry><entry access="write"><special>:slash_tmp</special></entry><entry access="write"><special>:tmpdir</special></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\PBC\.git</path></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\admin-pbc\.git</path></entry><entry access="read"><path>C:\Users\ckzz2\.codex\visualizations\2026\10\28\01a1814c-36ea-7de2-8282-9c1363b36586\.git</path></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\PBC\.agents</path></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\admin-pbc\.agents</path></entry><entry access="read"><path>C:\Users\ckzz2\.codex\visualizations\2026\10\28\01a1814c-36ea-7de2-8282-9c1363b36586\.agents</path></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\PBC\.codex</path></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\admin-pbc\.codex</path></entry><entry access="read"><path>C:\Users\ckzz2\.codex\visualizations\2026\10\28\01a1814c-36ea-7de2-8282-9c1363b36586\.codex</path></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\PBC\.aws</path></entry><entry access="read"><path>C:\Users\ckzz2\OneDrive\Documents\GitHub\admin-pbc\.aws</path></entry><entry access="read"><path>C:\Users\ckzz2\.codex\visualizations\2026\10\28\01a1814c-36ea-7de2-8282-9c1363b36586\.aws</path></entry></file_system></permission_profile></filesystem>
+  <subagents>
+    <agent name="/root/simplification_review" />
+    <agent name="/root/storefront_ui" />
+  </subagents>
+</environment_context>
