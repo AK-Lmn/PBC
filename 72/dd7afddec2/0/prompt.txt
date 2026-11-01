@@ -1,0 +1,37 @@
+Branding
+App information
+This shows in the consent screen, and helps end users know who you are and contact you
+
+App name
+Tindahan ni Tinapa Group Buy Receipts
+The name of the app asking for consent
+User support email
+klamano23@gmail.com
+For users to contact you with questions about their consent. Learn more 
+App logo
+This is your logo. It helps people recognize your app and is displayed on the OAuth consent screen.
+After you upload a logo, you will need to submit your app for verification unless the app is configured for internal use only or has a publishing status of "Testing". Learn more 
+
+Logo file to upload
+Upload an image, not larger than 1MB on the consent screen that will help users recognize your app. Allowed image formats are JPG, PNG, and BMP. Logos should be square and 120px by 120px for the best results.
+App domain
+To protect you and your users, Google only allows apps using OAuth to use Authorized Domains. The following information will be shown to your users on the consent screen.
+
+Application home page
+Provide users a link to your home page
+Application privacy policy link
+Provide users a link to your public privacy policy
+Application terms of service link
+Provide users a link to your public terms of service
+
+Authorized domains
+When a domain is used on the consent screen or in an OAuth client’s configuration, it must be pre-registered here. If your app needs to go through verification, please go to the Google Search Console to check if your domains are authorized. Learn more  about the authorized domain limit.
+Authorized domain 1 
+admin-pbc.vercel.app
+Developer contact information
+Email addresses 
+These email addresses are for Google to notify you about any changes to your project.
+Verification status
+ Verification is not required since your app is in Testing status . You can change your app's publishing status on 
+
+i need to finish this before publish
