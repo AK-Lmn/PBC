@@ -1,0 +1,1 @@
+Should we also add a delete button for catalogs and products?
