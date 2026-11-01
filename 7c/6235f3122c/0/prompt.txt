@@ -1,0 +1,3 @@
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_907db5f79114477aab9322e60274f7ac\",0]","question":"Which setup should I build? The simple page keeps product setup in one place and hides less-used fields until needed.","answer":"Simple page with optional sections (Recommended)"}]
+</send_user_message_question_reply>
