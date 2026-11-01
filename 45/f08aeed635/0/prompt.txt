@@ -1,0 +1,8 @@
+Soo my sister asked me to do a website like this -> [https://budolsupplies.zite.so/on-hand/niimbot](https://budolsupplies.zite.so/on-hand/niimbot) and [https://budolsupplies.zite.so/on-hand/niimbot](https://budolsupplies.zite.so/on-hand/niimbot)
+
+for her group buy things, right now this is her set up.
+
+i've made a dashboard for her orders where she can verify receipts and see the details orders and stuff. the receipts are stored in google drive. and on her dashboard, i've made it like she can customize her own products without needing me like she can add remove and stuff. please analyze the folders attached.
+
+pbc is her website/for ordering
+admin pbc is her dashboard
