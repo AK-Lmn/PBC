@@ -1,0 +1,8 @@
+# Response annotations:
+Each item contains text selected from an earlier Codex response and may include a user comment. Treat items as Annotation 1, Annotation 2, and so on in array order. Use every selection as context and address every comment. For every annotation you address, include its inline directive `:codex-annotation{index="N"}`, where N is its one-based array position (for example, `:codex-annotation{index="1"}`). Do not use unstructured annotation labels.
+<response-annotations>
+[{"text":"One copy issue: “New batch open now” is hard-coded, so it could be wrong when no batch is open. I’d change or remove that callout before committing. I haven’t committed these edits.","source":{"messageId":"msg_0135b7f4a59457ec016ae1d57288e081919b4621d4c42e6d6b","startOffset":158,"endOffset":339}}]
+</response-annotations>
+
+## My request:
+fix it first
