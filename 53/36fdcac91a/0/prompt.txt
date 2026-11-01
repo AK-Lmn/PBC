@@ -1,0 +1,6 @@
+# Files pasted by the user:
+
+## "function doPost(e) { try { var data = {}; var contentType = (e.postData && e.po…": C:\Users\ckzz2\.codex/attachments/a7bb0e3e-7691-4fd6-bfd3-a070d95d5eed/Pasted text.txt
+
+## My request:
+but wouldnt that be confusing like the main order site and gb is seperated and only sharres the dahsboard?
