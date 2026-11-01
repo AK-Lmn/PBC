@@ -1,0 +1,7 @@
+const RECEIPT_FOLDER_NAME = "Tindahan ni Tinapa Group Buy Receipts";
+const PROP_SHARED_SECRET = "REDACTED";
+const PROP_READER_EMAIL = "drive-image-proxy@prs-hub-507415.iam.gserviceaccount.com";
+const PROP_FOLDER_ID = "TINAPA_GB_RECEIPT_FOLDER_ID";
+const MAX_RECEIPT_BYTES = 3 * 1024 * 1024;
+
+i already set this in the appscript?
