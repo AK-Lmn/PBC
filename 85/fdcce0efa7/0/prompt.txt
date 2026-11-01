@@ -1,0 +1,1 @@
+[$ux-ui-design-system](C:\Users\ckzz2\OneDrive\Documents\GitHub\memory\skills\ux-ui-agent-skills\SKILL.md) match the theme of the gb site to the main order site. don't pr commit and push directly to main.
