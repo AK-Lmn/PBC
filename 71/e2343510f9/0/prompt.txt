@@ -1,0 +1,33 @@
+PLEASE IMPLEMENT THIS PLAN:
+# Tindahan ni Tinapa
+
+## Summary
+
+Create a separate storefront app in a new **private GitHub repository**, `AK-Lmn/pbc-gb`. Display the site name **Tindahan ni Tinapa**. Keep PBC as her main selling site.
+
+The storefront will take design cues from the [Niimbot reference](https://budolsupplies.zite.so/on-hand/niimbot), with on-hand stock, group-buy batches, cart, and order tracking. It will send orders and receipt proofs to admin-pbc.
+
+## Implementation
+
+- Create the private `AK-Lmn/pbc-gb` repository and deploy it as a separate Vercel project. Use its Vercel URL until a custom domain is chosen.
+- Build the storefront for on-hand and group-buy products. Support categories, stock counts, sale prices, batch deadlines and statuses, and optional arrival estimates.
+- Extend admin-pbc’s catalog model and management screens for the new storefront. Keep its catalog separate from PBC’s existing products.
+- Extend admin-pbc’s order API and dashboard with group-buy filtering and per-order batch and shipment details. Reuse its payment verification and Google Drive receipt flow.
+- Allow mixed carts. At checkout, customers choose one combined shipment or separate shipments. Apply the existing area-based rate per shipment and show the full amount before payment.
+- Reduce on-hand stock after payment verification. Calculate prices, stock availability, and shipping fees on the server. Keep existing orders and PBC behavior compatible.
+
+## Tests and acceptance
+
+- PBC keeps its existing catalog; Tindahan ni Tinapa shows only its own catalog.
+- Closed or expired group-buy batches reject new orders.
+- Mixed-order totals match the chosen shipping option.
+- Stock changes only after payment verification.
+- Orders and receipt proofs appear in admin-pbc’s dedicated group-buy view.
+- Existing orders and order tracking continue to work.
+
+## Assumptions
+
+- Group-buy batches have no minimum-quantity target in v1.
+- Admin changes batch status after its deadline; ordering closes automatically at the deadline.
+- Separate shipping creates one on-hand parcel and one parcel per group-buy batch.
+- The new repo is private under the same GitHub owner as PBC and admin-pbc, `AK-Lmn`.
