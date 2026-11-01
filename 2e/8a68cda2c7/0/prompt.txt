@@ -1,0 +1,2 @@
+Test it if everything is working, Email: admin@sellerhub.com
+Password: admin123. use this credentials on sellerhub
