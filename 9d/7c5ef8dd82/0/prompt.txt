@@ -1,0 +1,3 @@
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_aabd0b2c89dc42769d631d0905ac0b3b\",0]","question":"A GB Apps Script secret appeared in my settings tool output; I won’t repeat it. May I generate a fresh secret and replace it in Apps Script (TINAPA_GB_RECEIPT_SHARED_SECRET) and Vercel (TINAPA_GB_RECEIPT_SCRIPT_SECRET)? Uploads may pause briefly while both values update.","answer":"Do not rotate"}]
+</send_user_message_question_reply>
