@@ -1,0 +1,3 @@
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_380db48e34d840679675783149210a02\",0]","question":"Where should group-buy receipts go? The Drive folder is in personal My Drive; this needs one-time Google OAuth setup. Private Vercel Blob avoids setup, but GB receipts won’t appear in Drive. PBC’s existing Drive receipts stay unchanged.","answer":"Keep Google Drive (Recommended)"}]
+</send_user_message_question_reply>
