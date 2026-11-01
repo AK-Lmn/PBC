@@ -1,0 +1,7 @@
+# Response annotations:
+Each item contains text selected from an earlier Codex response and may include a user comment. Treat items as Annotation 1, Annotation 2, and so on in array order. Use every selection as context and address every comment. For every annotation you address, include its inline directive `:codex-annotation{index="N"}`, where N is its one-based array position (for example, `:codex-annotation{index="1"}`). Do not use unstructured annotation labels.
+<response-annotations>
+[{"text":"Receipt uploads won’t use this yet: admin-pbc still needs the Apps Script integration code merged and deployed. I didn’t redeploy the old production code. I also haven’t tested an actual receipt upload.","annotation":"then let's do this too","source":{"messageId":"msg_0135b7f4a59457ec016ae1f66bfb788191b1fecebc7287e1ca","startOffset":402,"endOffset":604}}]
+</response-annotations>
+
+## My request:
