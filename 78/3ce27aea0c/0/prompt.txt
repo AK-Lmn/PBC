@@ -1,0 +1,7 @@
+# Response annotations:
+Each item contains text selected from an earlier Codex response and may include a user comment. Treat items as Annotation 1, Annotation 2, and so on in array order. Use every selection as context and address every comment. For every annotation you address, include its inline directive `:codex-annotation{index="N"}`, where N is its one-based array position (for example, `:codex-annotation{index="1"}`). Do not use unstructured annotation labels.
+<response-annotations>
+[{"text":"Next, set TINAPA_GB_RECEIPT_SHARED_SECRET in Apps Script and set the same value in Vercel as TINAPA_GB_RECEIPT_SCRIPT_SECRET for Production and Preview. Keep that secret private. The script also needs TINAPA_GB_RECEIPT_READER_EMAIL set to drive-image-proxy@prs-hub-507415.iam.gserviceaccount.com.","annotation":"i'm confused, i already deployed the appscript?","source":{"messageId":"msg_0135b7f4a59457ec016ae1f3a8d2f48191a2f7499bf0335c10","startOffset":367,"endOffset":663}}]
+</response-annotations>
+
+## My request:
